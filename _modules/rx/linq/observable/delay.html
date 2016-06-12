@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rx.linq.observable.delay &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../../../../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Public API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>rx.linq.observable.delay</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for rx.linq.observable.delay</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span> <span class="nn">rx.core</span> <span class="kn">import</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">AnonymousObservable</span>
+<span class="kn">from</span> <span class="nn">rx.disposables</span> <span class="kn">import</span> <span class="n">CompositeDisposable</span><span class="p">,</span> \
+    <span class="n">SingleAssignmentDisposable</span><span class="p">,</span> <span class="n">SerialDisposable</span>
+<span class="kn">from</span> <span class="nn">rx.concurrency</span> <span class="kn">import</span> <span class="n">timeout_scheduler</span>
+<span class="kn">from</span> <span class="nn">rx.internal</span> <span class="kn">import</span> <span class="n">extensionmethod</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;Rx&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">Timestamp</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">timestamp</span>
+
+
+<span class="k">def</span> <span class="nf">observable_delay_timespan</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">duetime</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">):</span>
+    <span class="n">duetime</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">duetime</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="n">cancelable</span> <span class="o">=</span> <span class="n">SerialDisposable</span><span class="p">()</span>
+        <span class="n">exception</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+        <span class="n">active</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span>
+        <span class="n">running</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span><span class="p">]</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">def</span> <span class="nf">on_next</span><span class="p">(</span><span class="n">notification</span><span class="p">):</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;observable_delay_timespan:subscribe:on_next()&quot;</span><span class="p">)</span>
+            <span class="n">should_run</span> <span class="o">=</span> <span class="bp">False</span>
+
+            <span class="k">with</span> <span class="n">source</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">notification</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s1">&#39;E&#39;</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="n">queue</span><span class="p">[:]</span>
+                    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">notification</span><span class="p">)</span>
+                    <span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">notification</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">exception</span>
+                    <span class="n">should_run</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">running</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">notification</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">timestamp</span><span class="o">=</span><span class="n">notification</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">+</span> <span class="n">duetime</span><span class="p">))</span>
+                    <span class="n">should_run</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">active</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">active</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+
+            <span class="k">if</span> <span class="n">should_run</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;*** Exception: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">observer</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">d</span> <span class="o">=</span> <span class="n">SingleAssignmentDisposable</span><span class="p">()</span>
+                    <span class="n">cancelable</span><span class="o">.</span><span class="n">disposable</span> <span class="o">=</span> <span class="n">d</span>
+
+                    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="n">this</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                            <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;observable_delay_timespan:subscribe:on_next:action(), exception: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                            <span class="k">return</span>
+
+                        <span class="k">with</span> <span class="n">source</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+                            <span class="n">running</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+                            <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+                                <span class="n">result</span> <span class="o">=</span> <span class="bp">None</span>
+                                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="ow">and</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">&lt;=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">now</span><span class="p">:</span>
+                                    <span class="n">result</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+
+                                <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                                    <span class="n">result</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+                                <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">:</span>
+                                    <span class="k">break</span>
+
+                            <span class="n">should_recurse</span> <span class="o">=</span> <span class="bp">False</span>
+                            <span class="n">recurse_duetime</span> <span class="o">=</span> <span class="mi">0</span>
+                            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">):</span>
+                                <span class="n">should_recurse</span> <span class="o">=</span> <span class="bp">True</span>
+                                <span class="n">diff</span> <span class="o">=</span> <span class="n">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">-</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">now</span>
+                                <span class="n">zero</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>
+                                <span class="n">recurse_duetime</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">zero</span><span class="p">,</span> <span class="n">diff</span><span class="p">)</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">active</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+                            <span class="n">ex</span> <span class="o">=</span> <span class="n">exception</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                            <span class="n">running</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+
+                        <span class="k">if</span> <span class="n">ex</span><span class="p">:</span>
+                            <span class="n">observer</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+                        <span class="k">elif</span> <span class="n">should_recurse</span><span class="p">:</span>
+                            <span class="n">this</span><span class="p">(</span><span class="n">recurse_duetime</span><span class="p">)</span>
+
+                    <span class="n">d</span><span class="o">.</span><span class="n">disposable</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">schedule_recursive_with_relative</span><span class="p">(</span><span class="n">duetime</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>
+        <span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">materialize</span><span class="p">()</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">scheduler</span><span class="p">)</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">on_next</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">CompositeDisposable</span><span class="p">(</span><span class="n">subscription</span><span class="p">,</span> <span class="n">cancelable</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">AnonymousObservable</span><span class="p">(</span><span class="n">subscribe</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">observable_delay_date</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">duetime</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">defer</span><span class="p">():</span>
+        <span class="n">timespan</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">duetime</span><span class="p">)</span> <span class="o">-</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">now</span>
+        <span class="k">return</span> <span class="n">observable_delay_timespan</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">timespan</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Observable</span><span class="o">.</span><span class="n">defer</span><span class="p">(</span><span class="n">defer</span><span class="p">)</span>
+
+
+<span class="nd">@extensionmethod</span><span class="p">(</span><span class="n">Observable</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">delay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duetime</span><span class="p">,</span> <span class="n">scheduler</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Time shifts the observable sequence by duetime. The relative time</span>
+<span class="sd">    intervals between the values are preserved.</span>
+
+<span class="sd">    1 - res = rx.Observable.delay(datetime())</span>
+<span class="sd">    2 - res = rx.Observable.delay(datetime(), Scheduler.timeout)</span>
+
+<span class="sd">    3 - res = rx.Observable.delay(5000)</span>
+<span class="sd">    4 - res = rx.Observable.delay(5000, Scheduler.timeout)</span>
+
+<span class="sd">    Keyword arguments:</span>
+<span class="sd">    :param datetime|int duetime: Absolute (specified as a datetime object) or</span>
+<span class="sd">        relative time (specified as an integer denoting milliseconds) by which</span>
+<span class="sd">        to shift the observable sequence.</span>
+<span class="sd">    :param Scheduler scheduler: [Optional] Scheduler to run the delay timers on.</span>
+<span class="sd">        If not specified, the timeout scheduler is used.</span>
+
+<span class="sd">    :returns: Time-shifted sequence.</span>
+<span class="sd">    :rtype: Observable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">scheduler</span> <span class="o">=</span> <span class="n">scheduler</span> <span class="ow">or</span> <span class="n">timeout_scheduler</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">duetime</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="n">observable</span> <span class="o">=</span> <span class="n">observable_delay_date</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duetime</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">observable</span> <span class="o">=</span> <span class="n">observable_delay_timespan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duetime</span><span class="p">,</span> <span class="n">scheduler</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">observable</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

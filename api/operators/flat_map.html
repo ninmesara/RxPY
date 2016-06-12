@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flat map &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
+        <link rel="up" title="Operators" href="index.html"/>
+        <link rel="next" title="Flat map latest" href="flat_map_latest.html"/>
+        <link rel="prev" title="First" href="first.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Public API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../observable.html">Observable</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Operators</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#operators-by-category">Operators By Category</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#a-decision-tree-of-observable-operators">A Decision Tree of Observable Operators</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#an-alphabetical-list-of-observable-operators">An Alphabetical List of Observable Operators</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="all.html">All</a></li>
+<li class="toctree-l4"><a class="reference internal" href="amb.html">Amb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="and.html">And</a></li>
+<li class="toctree-l4"><a class="reference internal" href="as_observable.html">As observable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="average.html">Average</a></li>
+<li class="toctree-l4"><a class="reference internal" href="buffer.html">Buffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="case.html">Case</a></li>
+<li class="toctree-l4"><a class="reference internal" href="catch.html">Catch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="combine_latest.html">Combine latest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="concat.html">Concat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="contains.html">Contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="controlled.html">Controlled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="count.html">Count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="create.html">Create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="create_with_disposable.html">Create with disposable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="debounce.html">Debounce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="default_if_empty.html">Default if empty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="delay.html">Delay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="distinct.html">Distinct</a></li>
+<li class="toctree-l4"><a class="reference internal" href="do.html">Do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="do_while.html">Do while</a></li>
+<li class="toctree-l4"><a class="reference internal" href="element_at.html">Element at</a></li>
+<li class="toctree-l4"><a class="reference internal" href="empty-never-throw.html">Empty-never-throw</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exclusive.html">Exclusive</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter.html">Filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="first.html">First</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Flat map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flat_map_latest.html">Flat map latest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from.html">From</a></li>
+<li class="toctree-l4"><a class="reference internal" href="group_by.html">Group by</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ignore_elements.html">Ignore elements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="interval.html">Interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="join.html">Join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="just.html">Just</a></li>
+<li class="toctree-l4"><a class="reference internal" href="last.html">Last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="map.html">Map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="materialize-dematerialize.html">Materialize-dematerialize</a></li>
+<li class="toctree-l4"><a class="reference internal" href="max.html">Max</a></li>
+<li class="toctree-l4"><a class="reference internal" href="merge.html">Merge</a></li>
+<li class="toctree-l4"><a class="reference internal" href="min.html">Min</a></li>
+<li class="toctree-l4"><a class="reference internal" href="min_by.html">Min by</a></li>
+<li class="toctree-l4"><a class="reference internal" href="observe_on.html">Observe on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pausable.html">Pausable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pausable_buffered.html">Pausable buffered</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluck.html">Pluck</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluck_attr.html">Pluck attr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="publish.html">Publish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="range.html">Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="reduce.html">Reduce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="repeat.html">Repeat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="replay.html">Replay</a></li>
+<li class="toctree-l4"><a class="reference internal" href="retry.html">Retry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sample.html">Sample</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scan.html">Scan</a></li>
+<li class="toctree-l4"><a class="reference internal" href="select.html">Select</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sequence_equal.html">Sequence equal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="share.html">Share</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skip.html">Skip</a></li>
+<li class="toctree-l4"><a class="reference internal" href="start.html">Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="start_async.html">Start async</a></li>
+<li class="toctree-l4"><a class="reference internal" href="start_with.html">Start with</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subscribe.html">Subscribe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subscribe_on.html">Subscribe on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sum.html">Sum</a></li>
+<li class="toctree-l4"><a class="reference internal" href="switch_latest.html">Switch latest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="switch_map.html">Switch map</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take.html">Take</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_last.html">Take last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_last_buffer.html">Take last buffer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_last_with_time.html">Take last with time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_until.html">Take until</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_until_with_time.html">Take until with time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_while.html">Take while</a></li>
+<li class="toctree-l4"><a class="reference internal" href="take_with_time.html">Take with time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="then.html">Then</a></li>
+<li class="toctree-l4"><a class="reference internal" href="throttle_first.html">Throttle first</a></li>
+<li class="toctree-l4"><a class="reference internal" href="throttle_last.html">Throttle last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="time_interval.html">Time interval</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timeout.html">Timeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timeout_with_selector.html">Timeout with selector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timer.html">Timer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="timestamp.html">Timestamp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to.html">To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transduce.html">Transduce</a></li>
+<li class="toctree-l4"><a class="reference internal" href="using.html">Using</a></li>
+<li class="toctree-l4"><a class="reference internal" href="while_do.html">While do</a></li>
+<li class="toctree-l4"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zip.html">Zip</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html">Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single.html">Single</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../subject.html">Subject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Public API</a> &raquo;</li>
+      
+          <li><a href="index.html">Operators</a> &raquo;</li>
+      
+    <li>Flat map</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/api/operators/flat_map.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="figure align-center" id="id1">
+<img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
+<p class="caption"><span class="caption-text">Under construction...</span></p>
+</div>
+<div class="section" id="flat-map">
+<span id="operator-select-switch"></span><span id="operator-select-many"></span><span id="operator-many-select"></span><span id="operator-for-in"></span><span id="operator-flat-map"></span><span id="operator-expand"></span><h1>Flat map<a class="headerlink" href="#flat-map" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="rx.Observable.expand">
+<code class="descclassname">Observable.</code><code class="descname">expand</code><span class="sig-paren">(</span><em>selector</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.expand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expands an observable sequence by recursively invoking selector.</p>
+<dl class="docutils">
+<dt>selector &#8211; {Function} Selector function to invoke for each produced</dt>
+<dd>element, resulting in another sequence to which the selector will be
+invoked recursively again.</dd>
+<dt>scheduler &#8211; {Scheduler} [Optional] Scheduler on which to perform the</dt>
+<dd>expansion. If not provided, this defaults to the current thread
+scheduler.</dd>
+</dl>
+<p>Returns an observable {Observable} sequence containing all the elements
+produced by the recursive expansion.</p>
+<img alt="../../_images/expand.png" class="align-center" src="../../_images/expand.png" />
+</dd></dl>
+
+<dl class="method">
+<dt id="rx.Observable.flat_map">
+<code class="descclassname">Observable.</code><code class="descname">flat_map</code><span class="sig-paren">(</span><em>selector</em>, <em>result_selector=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.flat_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>One of the Following:
+Projects each element of an observable sequence to an observable
+sequence and merges the resulting observable sequences into one
+observable sequence.</p>
+<p>1 - source.select_many(lambda x: Observable.range(0, x))</p>
+<p>Or:
+Projects each element of an observable sequence to an observable
+sequence, invokes the result selector for the source element and each
+of the corresponding inner sequence&#8217;s elements, and merges the results
+into one observable sequence.</p>
+<p>1 - source.select_many(lambda x: Observable.range(0, x), lambda x, y: x + y)</p>
+<p>Or:
+Projects each element of the source observable sequence to the other
+observable sequence and merges the resulting observable sequences into
+one observable sequence.</p>
+<p>1 - source.select_many(Observable.from_([1,2,3]))</p>
+<p>Keyword arguments:
+selector &#8211; A transform function to apply to each element or an</p>
+<blockquote>
+<div>observable sequence to project each element from the source
+sequence onto.</div></blockquote>
+<dl class="docutils">
+<dt>result_selector &#8211; [Optional] A transform function to apply to each</dt>
+<dd>element of the intermediate sequence.</dd>
+</dl>
+<p>Returns an observable sequence whose elements are the result of
+invoking the one-to-many transform function collectionSelector on each
+element of the input sequence and then mapping each of those sequence
+elements and their corresponding source element to a result element.</p>
+<img alt="../../_images/flatMap.png" class="align-center" src="../../_images/flatMap.png" />
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="rx.Observable.for_in">
+<em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">for_in</code><span class="sig-paren">(</span><em>sources</em>, <em>result_selector</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.for_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenates the observable sequences obtained by running the
+specified result selector for each element in source.</p>
+<dl class="docutils">
+<dt>sources &#8211; {Array} An array of values to turn into an observable</dt>
+<dd>sequence.</dd>
+<dt>result_selector &#8211; {Function} A function to apply to each item in the</dt>
+<dd>sources array to turn it into an observable sequence.</dd>
+</dl>
+<p>Returns an observable {Observable} sequence from the concatenated
+observable sequences.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rx.Observable.many_select">
+<code class="descclassname">Observable.</code><code class="descname">many_select</code><span class="sig-paren">(</span><em>selector</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.many_select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comonadic bind operator. Internally projects a new observable for each
+value, and it pushes each observable into the user-defined selector function
+that projects/queries each observable into some result.</p>
+<p>Keyword arguments:
+selector &#8211; {Function} A transform function to apply to each element.
+scheduler &#8211; {Object} [Optional] Scheduler used to execute the</p>
+<blockquote>
+<div>operation. If not specified, defaults to the ImmediateScheduler.</div></blockquote>
+<p>Returns {Observable} An observable sequence which results from the
+comonadic bind operation.</p>
+<img alt="../../_images/manySelect.png" class="align-center" src="../../_images/manySelect.png" />
+</dd></dl>
+
+<dl class="method">
+<dt id="rx.Observable.select_many">
+<code class="descclassname">Observable.</code><code class="descname">select_many</code><span class="sig-paren">(</span><em>selector</em>, <em>result_selector=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.select_many" title="Permalink to this definition">¶</a></dt>
+<dd><p>One of the Following:
+Projects each element of an observable sequence to an observable
+sequence and merges the resulting observable sequences into one
+observable sequence.</p>
+<p>1 - source.select_many(lambda x: Observable.range(0, x))</p>
+<p>Or:
+Projects each element of an observable sequence to an observable
+sequence, invokes the result selector for the source element and each
+of the corresponding inner sequence&#8217;s elements, and merges the results
+into one observable sequence.</p>
+<p>1 - source.select_many(lambda x: Observable.range(0, x), lambda x, y: x + y)</p>
+<p>Or:
+Projects each element of the source observable sequence to the other
+observable sequence and merges the resulting observable sequences into
+one observable sequence.</p>
+<p>1 - source.select_many(Observable.from_([1,2,3]))</p>
+<p>Keyword arguments:
+selector &#8211; A transform function to apply to each element or an</p>
+<blockquote>
+<div>observable sequence to project each element from the source
+sequence onto.</div></blockquote>
+<dl class="docutils">
+<dt>result_selector &#8211; [Optional] A transform function to apply to each</dt>
+<dd>element of the intermediate sequence.</dd>
+</dl>
+<p>Returns an observable sequence whose elements are the result of
+invoking the one-to-many transform function collectionSelector on each
+element of the input sequence and then mapping each of those sequence
+elements and their corresponding source element to a result element.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rx.Observable.select_switch">
+<code class="descclassname">Observable.</code><code class="descname">select_switch</code><span class="sig-paren">(</span><em>selector</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.select_switch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Projects each element of an observable sequence into a new sequence
+of observable sequences by incorporating the element&#8217;s index and then
+transforms an observable sequence of observable sequences into an
+observable sequence producing values only from the most recent
+observable sequence.</p>
+<p>Keyword arguments:
+selector &#8211; {Function} A transform function to apply to each source</p>
+<blockquote>
+<div>element; the second parameter of the function represents the index
+of the source element.</div></blockquote>
+<p>Returns an observable {Observable} sequence whose elements are the
+result of invoking the transform function on each element of source
+producing an Observable of Observable sequences and that at any point in
+time produces the elements of the most recent inner observable sequence
+that has been received.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flat_map_latest.html" class="btn btn-neutral float-right" title="Flat map latest" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="first.html" class="btn btn-neutral" title="First" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

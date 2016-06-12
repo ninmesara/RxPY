@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rx.linq.observable.transduce &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../../../../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Public API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>rx.linq.observable.transduce</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for rx.linq.observable.transduce</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Transducers for RxPY.</span>
+
+<span class="sd">There are several different implementations of transducers in Python.</span>
+<span class="sd">This implementation is currently targeted for:</span>
+
+<span class="sd"> - http://code.sixty-north.com/python-transducers</span>
+
+<span class="sd">You should also read the excellent article series &quot;Understanding</span>
+<span class="sd">Transducers through Python&quot; at:</span>
+<span class="sd"> - http://sixty-north.com/blog/series/understanding-transducers-through-python</span>
+
+<span class="sd">Other implementations of transducers in Python are:</span>
+
+<span class="sd"> - https://github.com/cognitect-labs/transducers-python</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">rx.core</span> <span class="kn">import</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">AnonymousObservable</span>
+<span class="kn">from</span> <span class="nn">rx.internal</span> <span class="kn">import</span> <span class="n">extensionmethod</span>
+
+
+<span class="k">class</span> <span class="nc">Observing</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;An observing transducer.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observer</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observer</span> <span class="o">=</span> <span class="n">observer</span>
+
+    <span class="k">def</span> <span class="nf">initial</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">observer</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obs</span><span class="o">.</span><span class="n">on_next</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">complete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">obs</span><span class="o">.</span><span class="n">on_completed</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+
+
+<span class="nd">@extensionmethod</span><span class="p">(</span><span class="n">Observable</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">transduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transducer</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Execute a transducer to transform the observable sequence.</span>
+
+<span class="sd">    Keyword arguments:</span>
+<span class="sd">    :param Transducer transducer: A transducer to execute.</span>
+
+<span class="sd">    :returns: An Observable sequence containing the results from the</span>
+<span class="sd">        transducer.</span>
+<span class="sd">    :rtype: Observable</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="n">xform</span> <span class="o">=</span> <span class="n">transducer</span><span class="p">(</span><span class="n">Observing</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">on_next</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">xform</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">observer</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">observer</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">on_completed</span><span class="p">():</span>
+            <span class="n">xform</span><span class="o">.</span><span class="n">complete</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">on_next</span><span class="p">,</span> <span class="n">observer</span><span class="o">.</span><span class="n">on_error</span><span class="p">,</span> <span class="n">on_completed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">AnonymousObservable</span><span class="p">(</span><span class="n">subscribe</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

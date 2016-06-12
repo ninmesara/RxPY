@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rx.linq.observable.throw &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../../../../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Public API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>rx.linq.observable.throw</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for rx.linq.observable.throw</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">rx.core</span> <span class="kn">import</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">AnonymousObservable</span>
+
+<span class="kn">from</span> <span class="nn">rx.concurrency</span> <span class="kn">import</span> <span class="n">immediate_scheduler</span>
+<span class="kn">from</span> <span class="nn">rx.internal</span> <span class="kn">import</span> <span class="n">extensionclassmethod</span>
+
+
+<span class="nd">@extensionclassmethod</span><span class="p">(</span><span class="n">Observable</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;throw_exception&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">throw</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">exception</span><span class="p">,</span> <span class="n">scheduler</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns an observable sequence that terminates with an exception,</span>
+<span class="sd">    using the specified scheduler to send out the single OnError message.</span>
+
+<span class="sd">    1 - res = rx.Observable.throw_exception(Exception(&#39;Error&#39;))</span>
+<span class="sd">    2 - res = rx.Observable.throw_exception(Exception(&#39;Error&#39;),</span>
+<span class="sd">                                            rx.Scheduler.timeout)</span>
+
+<span class="sd">    Keyword arguments:</span>
+<span class="sd">    exception -- An object used for the sequence&#39;s termination.</span>
+<span class="sd">    scheduler -- Scheduler to send the exceptional termination call on. If</span>
+<span class="sd">        not specified, defaults to ImmediateScheduler.</span>
+
+<span class="sd">    Returns the observable sequence that terminates exceptionally with the</span>
+<span class="sd">    specified exception object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">scheduler</span> <span class="o">=</span> <span class="n">scheduler</span> <span class="ow">or</span> <span class="n">immediate_scheduler</span>
+
+    <span class="n">exception</span> <span class="o">=</span> <span class="n">exception</span> <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span> <span class="ow">is</span> <span class="ne">Exception</span> <span class="k">else</span> <span class="ne">Exception</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="n">scheduler</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">exception</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">schedule</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">AnonymousObservable</span><span class="p">(</span><span class="n">subscribe</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rx.linq.observable.takewithtime &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../../../../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/index.html">Public API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+      
+    <li>rx.linq.observable.takewithtime</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for rx.linq.observable.takewithtime</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">rx</span> <span class="kn">import</span> <span class="n">Observable</span><span class="p">,</span> <span class="n">AnonymousObservable</span>
+<span class="kn">from</span> <span class="nn">rx.disposables</span> <span class="kn">import</span> <span class="n">CompositeDisposable</span>
+<span class="kn">from</span> <span class="nn">rx.concurrency</span> <span class="kn">import</span> <span class="n">timeout_scheduler</span>
+<span class="kn">from</span> <span class="nn">rx.internal</span> <span class="kn">import</span> <span class="n">extensionmethod</span>
+
+
+<span class="nd">@extensionmethod</span><span class="p">(</span><span class="n">Observable</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">take_with_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">scheduler</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Takes elements for the specified duration from the start of the</span>
+<span class="sd">    observable source sequence, using the specified scheduler to run timers.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    res = source.take_with_time(5000,  [optional scheduler])</span>
+
+<span class="sd">    Description:</span>
+<span class="sd">    This operator accumulates a queue with a length enough to store elements</span>
+<span class="sd">    received during the initial duration window. As more elements are</span>
+<span class="sd">    received, elements older than the specified duration are taken from the</span>
+<span class="sd">    queue and produced on the result sequence. This causes elements to be</span>
+<span class="sd">    delayed with duration.</span>
+
+<span class="sd">    Keyword arguments:</span>
+<span class="sd">    duration -- {Number} Duration for taking elements from the start of the</span>
+<span class="sd">        sequence.</span>
+<span class="sd">    scheduler -- {Scheduler} Scheduler to run the timer on. If not</span>
+<span class="sd">        specified, defaults to rx.Scheduler.timeout.</span>
+
+<span class="sd">    Returns {Observable} An observable sequence with the elements taken</span>
+<span class="sd">    during the specified duration from the start of the source sequence.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">source</span> <span class="o">=</span> <span class="bp">self</span>
+    <span class="n">scheduler</span> <span class="o">=</span> <span class="n">scheduler</span> <span class="ow">or</span> <span class="n">timeout_scheduler</span>
+
+    <span class="k">def</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="n">scheduler</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+            <span class="n">observer</span><span class="o">.</span><span class="n">on_completed</span><span class="p">()</span>
+        <span class="n">disposable</span> <span class="o">=</span> <span class="n">scheduler</span><span class="o">.</span><span class="n">schedule_relative</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">CompositeDisposable</span><span class="p">(</span><span class="n">disposable</span><span class="p">,</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">observer</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">AnonymousObservable</span><span class="p">(</span><span class="n">subscribe</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
