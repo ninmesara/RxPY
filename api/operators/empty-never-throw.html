@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Filter" href="filter.html"/>
-        <link rel="prev" title="Element at" href="element_at.html"/> 
+        <link rel="prev" title="Element at" href="element_at.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -243,8 +247,15 @@
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="empty-never-throw">
-<span id="operator-throw-exception"></span><span id="operator-throw"></span><span id="operator-never"></span><span id="operator-empty"></span><h1>Empty-never-throw<a class="headerlink" href="#empty-never-throw" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-throw-exception-header"></span><span id="operator-throw-header"></span><span id="operator-never-header"></span><span id="operator-empty-header"></span><h1>Empty-never-throw<a class="headerlink" href="#empty-never-throw" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/empty-never-throw.html">EmptyNeverThrow</a></li>
+</ul>
+</div>
+<span class="target" id="operator-empty"></span><dl class="classmethod">
 <dt id="rx.Observable.empty">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">empty</code><span class="sig-paren">(</span><em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an empty observable sequence, using the specified scheduler
@@ -256,7 +267,7 @@ to send out the single OnCompleted message.</p>
 <img alt="../../_images/empty.png" class="align-center" src="../../_images/empty.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-never"></span><dl class="classmethod">
 <dt id="rx.Observable.never">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">never</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.never" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a non-terminating observable sequence, which can be used to
@@ -265,7 +276,7 @@ denote an infinite duration (e.g. when using reactive joins).</p>
 <img alt="../../_images/never.png" class="align-center" src="../../_images/never.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-throw"></span><dl class="classmethod">
 <dt id="rx.Observable.throw">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">throw</code><span class="sig-paren">(</span><em>exception</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.throw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an observable sequence that terminates with an exception,
@@ -283,7 +294,7 @@ scheduler &#8211; Scheduler to send the exceptional termination call on. If</p>
 specified exception object.</p>
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-throw-exception"></span><dl class="classmethod">
 <dt id="rx.Observable.throw_exception">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">throw_exception</code><span class="sig-paren">(</span><em>exception</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.throw_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an observable sequence that terminates with an exception,

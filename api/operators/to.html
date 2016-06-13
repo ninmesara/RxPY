@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Transduce" href="transduce.html"/>
-        <link rel="prev" title="Timestamp" href="timestamp.html"/> 
+        <link rel="prev" title="Timestamp" href="timestamp.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="to">
-<span id="operator-to-set"></span><span id="operator-to-list"></span><span id="operator-to-iterable"></span><span id="operator-to-future"></span><span id="operator-to-dict"></span><span id="operator-to-blocking"></span><span id="operator-to-async"></span><h1>To<a class="headerlink" href="#to" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-to-set-header"></span><span id="operator-to-list-header"></span><span id="operator-to-iterable-header"></span><span id="operator-to-future-header"></span><span id="operator-to-dict-header"></span><span id="operator-to-blocking-header"></span><span id="operator-to-async-header"></span><h1>To<a class="headerlink" href="#to" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/to.html">To</a></li>
+</ul>
+</div>
+<span class="target" id="operator-to-async"></span><dl class="classmethod">
 <dt id="rx.Observable.to_async">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">to_async</code><span class="sig-paren">(</span><em>func</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_async" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the function into an asynchronous function. Each invocation
@@ -276,12 +287,12 @@ not specified, defaults to <code class="xref py py-func docutils literal"><span 
 <img alt="../../_images/toAsync.png" class="align-center" src="../../_images/toAsync.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-to-blocking"></span><dl class="method">
 <dt id="rx.Observable.to_blocking">
 <code class="descclassname">Observable.</code><code class="descname">to_blocking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_blocking" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-to-dict"></span><dl class="method">
 <dt id="rx.Observable.to_dict">
 <code class="descclassname">Observable.</code><code class="descname">to_dict</code><span class="sig-paren">(</span><em>key_selector</em>, <em>element_selector=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the observable sequence to a <a class="reference external" href="https://docs.python.org/library/stdtypes.html#dict" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> if it exists.</p>
@@ -309,7 +320,7 @@ the value from the observable sequence.</td>
 </table>
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-to-future"></span><dl class="method">
 <dt id="rx.Observable.to_future">
 <code class="descclassname">Observable.</code><code class="descname">to_future</code><span class="sig-paren">(</span><em>future_ctor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_future" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts an existing observable sequence to a Future</p>
@@ -326,7 +337,7 @@ future = rx.Observable.return_value(42).to_future()</p>
 sequence.</p>
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-to-iterable"></span><dl class="method">
 <dt id="rx.Observable.to_iterable">
 <code class="descclassname">Observable.</code><code class="descname">to_iterable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_iterable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a list from an observable sequence.</p>
@@ -334,7 +345,7 @@ sequence.</p>
 containing all the elements of the source sequence.</p>
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-to-list"></span><dl class="method">
 <dt id="rx.Observable.to_list">
 <code class="descclassname">Observable.</code><code class="descname">to_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a list from an observable sequence.</p>
@@ -343,7 +354,7 @@ containing all the elements of the source sequence.</p>
 <img alt="../../_images/toList.png" class="align-center" src="../../_images/toList.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-to-set"></span><dl class="method">
 <dt id="rx.Observable.to_set">
 <code class="descclassname">Observable.</code><code class="descname">to_set</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the observable sequence to a set.</p>

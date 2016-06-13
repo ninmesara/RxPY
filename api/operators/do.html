@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Do while" href="do_while.html"/>
-        <link rel="prev" title="Distinct" href="distinct.html"/> 
+        <link rel="prev" title="Distinct" href="distinct.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="do">
-<span id="operator-tap"></span><span id="operator-finally-action"></span><span id="operator-do-action"></span><h1>Do<a class="headerlink" href="#do" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-tap-header"></span><span id="operator-finally-action-header"></span><span id="operator-do-action-header"></span><h1>Do<a class="headerlink" href="#do" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/do.html">Do</a></li>
+</ul>
+</div>
+<span class="target" id="operator-do-action"></span><dl class="method">
 <dt id="rx.Observable.do_action">
 <code class="descclassname">Observable.</code><code class="descname">do_action</code><span class="sig-paren">(</span><em>on_next=None</em>, <em>on_error=None</em>, <em>on_completed=None</em>, <em>observer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.do_action" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes an action for each element in the observable sequence and
@@ -269,7 +280,7 @@ on_next &#8211; [Optional] Action to invoke for each element in the</p>
 <p>Returns the source sequence with the side-effecting behavior applied.</p>
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-finally-action"></span><dl class="method">
 <dt id="rx.Observable.finally_action">
 <code class="descclassname">Observable.</code><code class="descname">finally_action</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.finally_action" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes a specified action after the source observable sequence
@@ -284,7 +295,7 @@ action &#8211; {Function} Action to invoke after the source observable</p>
 termination behavior applied.</p>
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-tap"></span><dl class="method">
 <dt id="rx.Observable.tap">
 <code class="descclassname">Observable.</code><code class="descname">tap</code><span class="sig-paren">(</span><em>on_next=None</em>, <em>on_error=None</em>, <em>on_completed=None</em>, <em>observer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.tap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes an action for each element in the observable sequence and

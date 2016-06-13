@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Catch" href="catch.html"/>
-        <link rel="prev" title="Buffer" href="buffer.html"/> 
+        <link rel="prev" title="Buffer" href="buffer.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="case">
-<span id="operator-switch-case"></span><span id="operator-if-then"></span><span id="operator-defer"></span><span id="operator-case"></span><h1>Case<a class="headerlink" href="#case" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-switch-case-header"></span><span id="operator-if-then-header"></span><span id="operator-defer-header"></span><span id="operator-case-header"></span><h1>Case<a class="headerlink" href="#case" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/case.html">Case</a></li>
+</ul>
+</div>
+<span class="target" id="operator-case"></span><dl class="classmethod">
 <dt id="rx.Observable.case">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">case</code><span class="sig-paren">(</span><em>selector</em>, <em>sources</em>, <em>default_source=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.case" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses selector to determine which source in sources to use.
@@ -283,7 +294,7 @@ defaults to rx.Observabe.empty with the specified scheduler.</li>
 <img alt="../../_images/case.png" class="align-center" src="../../_images/case.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-defer"></span><dl class="classmethod">
 <dt id="rx.Observable.defer">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">defer</code><span class="sig-paren">(</span><em>observable_factory</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.defer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an observable sequence that invokes the specified factory
@@ -307,7 +318,7 @@ function whenever a new observer subscribes.</p>
 <img alt="../../_images/defer.png" class="align-center" src="../../_images/defer.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-if-then"></span><dl class="classmethod">
 <dt id="rx.Observable.if_then">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">if_then</code><span class="sig-paren">(</span><em>condition</em>, <em>then_source</em>, <em>else_source=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.if_then" title="Permalink to this definition">¶</a></dt>
 <dd><p>Determines whether an observable collection contains values.</p>
@@ -332,7 +343,7 @@ then_source or else_source.</p>
 <img alt="../../_images/ifThen.png" class="align-center" src="../../_images/ifThen.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-switch-case"></span><dl class="classmethod">
 <dt id="rx.Observable.switch_case">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">switch_case</code><span class="sig-paren">(</span><em>selector</em>, <em>sources</em>, <em>default_source=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.switch_case" title="Permalink to this definition">¶</a></dt>
 <dd><p>Uses selector to determine which source in sources to use.

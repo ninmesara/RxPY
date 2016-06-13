@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Case" href="case.html"/>
-        <link rel="prev" title="Average" href="average.html"/> 
+        <link rel="prev" title="Average" href="average.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="buffer">
-<span id="operator-pairwise"></span><span id="operator-buffer-with-time-or-count"></span><span id="operator-buffer-with-time"></span><span id="operator-buffer-with-count"></span><span id="operator-buffer"></span><h1>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-pairwise-header"></span><span id="operator-buffer-with-time-or-count-header"></span><span id="operator-buffer-with-time-header"></span><span id="operator-buffer-with-count-header"></span><span id="operator-buffer-header"></span><h1>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/buffer.html">Buffer</a></li>
+</ul>
+</div>
+<span class="target" id="operator-buffer"></span><dl class="method">
 <dt id="rx.Observable.buffer">
 <code class="descclassname">Observable.</code><code class="descname">buffer</code><span class="sig-paren">(</span><em>buffer_openings=None</em>, <em>closing_selector=None</em>, <em>buffer_closing_selector=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.buffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Projects each element of an observable sequence into zero or more
@@ -278,7 +289,7 @@ specified for the first parameter, self parameter is ignored.</dd>
 <img alt="../../_images/buffer8.py.png" class="align-center" src="../../_images/buffer8.py.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-buffer-with-count"></span><dl class="method">
 <dt id="rx.Observable.buffer_with_count">
 <code class="descclassname">Observable.</code><code class="descname">buffer_with_count</code><span class="sig-paren">(</span><em>count</em>, <em>skip=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.buffer_with_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Projects each element of an observable sequence into zero or more
@@ -299,7 +310,7 @@ skip &#8211; {Number} [Optional] Number of elements to skip between creation</p>
 <img alt="../../_images/buffer_with_count4.rb.png" class="align-center" src="../../_images/buffer_with_count4.rb.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-buffer-with-time"></span><dl class="method">
 <dt id="rx.Observable.buffer_with_time">
 <code class="descclassname">Observable.</code><code class="descname">buffer_with_time</code><span class="sig-paren">(</span><em>timespan</em>, <em>timeshift=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.buffer_with_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Projects each element of an observable sequence into zero or more
@@ -328,7 +339,7 @@ adjacent buffers.</dd>
 <img alt="../../_images/buffer_with_time7.py.png" class="align-center" src="../../_images/buffer_with_time7.py.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-buffer-with-time-or-count"></span><dl class="method">
 <dt id="rx.Observable.buffer_with_time_or_count">
 <code class="descclassname">Observable.</code><code class="descname">buffer_with_time_or_count</code><span class="sig-paren">(</span><em>timespan</em>, <em>count</em>, <em>scheduler</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.buffer_with_time_or_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Projects each element of an observable sequence into a buffer that
@@ -349,7 +360,7 @@ scheduler &#8211; [Optional] Scheduler to run bufferin timers on. If not</p>
 <img alt="../../_images/buffer_with_time_or_count6.py.png" class="align-center" src="../../_images/buffer_with_time_or_count6.py.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-pairwise"></span><dl class="method">
 <dt id="rx.Observable.pairwise">
 <code class="descclassname">Observable.</code><code class="descname">pairwise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.pairwise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new observable that triggers on the second and subsequent

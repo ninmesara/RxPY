@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Scan" href="scan.html"/>
-        <link rel="prev" title="Retry" href="retry.html"/> 
+        <link rel="prev" title="Retry" href="retry.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="sample">
-<span id="operator-throttle-last"></span><span id="operator-throttle-first"></span><span id="operator-sample"></span><h1>Sample<a class="headerlink" href="#sample" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-throttle-last-header"></span><span id="operator-throttle-first-header"></span><span id="operator-sample-header"></span><h1>Sample<a class="headerlink" href="#sample" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/sample.html">Sample</a></li>
+</ul>
+</div>
+<span class="target" id="operator-sample"></span><dl class="method">
 <dt id="rx.Observable.sample">
 <code class="descclassname">Observable.</code><code class="descname">sample</code><span class="sig-paren">(</span><em>interval=None</em>, <em>sampler=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples the observable sequence at each interval.</p>
@@ -284,7 +295,7 @@ specified, the timeout scheduler is used.</li>
 <img alt="../../_images/sample.png" class="align-center" src="../../_images/sample.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-throttle-first"></span><dl class="method">
 <dt id="rx.Observable.throttle_first">
 <code class="descclassname">Observable.</code><code class="descname">throttle_first</code><span class="sig-paren">(</span><em>window_duration</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.throttle_first" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an Observable that emits only the first item emitted by the
@@ -303,7 +314,7 @@ provided, defaults to Scheduler.timeout.</dd>
 <img alt="../../_images/throttleFirst.png" class="align-center" src="../../_images/throttleFirst.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-throttle-last"></span><dl class="method">
 <dt id="rx.Observable.throttle_last">
 <code class="descclassname">Observable.</code><code class="descname">throttle_last</code><span class="sig-paren">(</span><em>interval=None</em>, <em>sampler=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.throttle_last" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples the observable sequence at each interval.</p>

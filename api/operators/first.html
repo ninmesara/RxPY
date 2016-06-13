@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Flat map" href="flat_map.html"/>
-        <link rel="prev" title="Filter" href="filter.html"/> 
+        <link rel="prev" title="Filter" href="filter.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="first">
-<span id="operator-single-or-default"></span><span id="operator-single"></span><span id="operator-first-or-default"></span><span id="operator-first"></span><h1>First<a class="headerlink" href="#first" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-single-or-default-header"></span><span id="operator-single-header"></span><span id="operator-first-or-default-header"></span><span id="operator-first-header"></span><h1>First<a class="headerlink" href="#first" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/first.html">First</a></li>
+</ul>
+</div>
+<span class="target" id="operator-first"></span><dl class="method">
 <dt id="rx.Observable.first">
 <code class="descclassname">Observable.</code><code class="descname">first</code><span class="sig-paren">(</span><em>predicate=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.first" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the first element of an observable sequence that satisfies
@@ -264,7 +275,7 @@ provided, else the first item in the sequence.</p>
 <img alt="../../_images/B.first.p.png" class="align-center" src="../../_images/B.first.p.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-first-or-default"></span><dl class="method">
 <dt id="rx.Observable.first_or_default">
 <code class="descclassname">Observable.</code><code class="descname">first_or_default</code><span class="sig-paren">(</span><em>predicate=None</em>, <em>default_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.first_or_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the first element of an observable sequence that satisfies
@@ -290,7 +301,7 @@ default value if no such element exists.</p>
 <img alt="../../_images/B.firstOrDefault.p.png" class="align-center" src="../../_images/B.firstOrDefault.p.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-single"></span><dl class="method">
 <dt id="rx.Observable.single">
 <code class="descclassname">Observable.</code><code class="descname">single</code><span class="sig-paren">(</span><em>predicate=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.single" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the only element of an observable sequence that satisfies the
@@ -309,7 +320,7 @@ observable sequence that satisfies the condition in the predicate.</p>
 <img alt="../../_images/B.single.p.png" class="align-center" src="../../_images/B.single.p.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-single-or-default"></span><dl class="method">
 <dt id="rx.Observable.single_or_default">
 <code class="descclassname">Observable.</code><code class="descname">single_or_default</code><span class="sig-paren">(</span><em>predicate</em>, <em>default_value</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.single_or_default" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the only element of an observable sequence that matches the

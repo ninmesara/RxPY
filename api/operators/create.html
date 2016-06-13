@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Create with disposable" href="create_with_disposable.html"/>
-        <link rel="prev" title="Count" href="count.html"/> 
+        <link rel="prev" title="Count" href="count.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,19 +242,26 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="create">
-<span id="operator-generate-with-relative-time"></span><span id="operator-generate"></span><span id="operator-create"></span><h1>Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-generate-with-relative-time-header"></span><span id="operator-generate-header"></span><span id="operator-create-header"></span><h1>Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/create.html">Create</a></li>
+</ul>
+</div>
+<span class="target" id="operator-create"></span><dl class="classmethod">
 <dt id="rx.Observable.create">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">create</code><span class="sig-paren">(</span><em>subscribe</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.create" title="Permalink to this definition">¶</a></dt>
 <dd><img alt="../../_images/create.png" class="align-center" src="../../_images/create.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-generate"></span><dl class="classmethod">
 <dt id="rx.Observable.generate">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">generate</code><span class="sig-paren">(</span><em>initial_state</em>, <em>condition</em>, <em>iterate</em>, <em>result_selector</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.generate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an observable sequence by running a state-driven loop
@@ -282,7 +293,7 @@ result_selector &#8211; Selector function for results produced in the</p>
 <img alt="../../_images/generate.png" class="align-center" src="../../_images/generate.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-generate-with-relative-time"></span><dl class="classmethod">
 <dt id="rx.Observable.generate_with_relative_time">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">generate_with_relative_time</code><span class="sig-paren">(</span><em>initial_state</em>, <em>condition</em>, <em>iterate</em>, <em>result_selector</em>, <em>time_selector</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.generate_with_relative_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates an observable sequence by iterating a state from an

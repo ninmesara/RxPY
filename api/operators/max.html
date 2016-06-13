@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Merge" href="merge.html"/>
-        <link rel="prev" title="Materialize-dematerialize" href="materialize-dematerialize.html"/> 
+        <link rel="prev" title="Materialize-dematerialize" href="materialize-dematerialize.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="max">
-<span id="operator-max-by"></span><span id="operator-max"></span><h1>Max<a class="headerlink" href="#max" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-max-by-header"></span><span id="operator-max-header"></span><h1>Max<a class="headerlink" href="#max" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/max.html">Max</a></li>
+</ul>
+</div>
+<span class="target" id="operator-max"></span><dl class="method">
 <dt id="rx.Observable.max">
 <code class="descclassname">Observable.</code><code class="descname">max</code><span class="sig-paren">(</span><em>comparer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.max" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the maximum value in an observable sequence according to the
@@ -259,7 +270,7 @@ with the maximum element in the source sequence.</p>
 <img alt="../../_images/max.png" class="align-center" src="../../_images/max.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-max-by"></span><dl class="method">
 <dt id="rx.Observable.max_by">
 <code class="descclassname">Observable.</code><code class="descname">max_by</code><span class="sig-paren">(</span><em>key_selector</em>, <em>comparer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.max_by" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the elements in an observable sequence with the maximum

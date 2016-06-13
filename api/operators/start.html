@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Start with" href="start_with.html"/>
-        <link rel="prev" title="Skip while" href="skip_while.html"/> 
+        <link rel="prev" title="Skip while" href="skip_while.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="start">
-<span id="operator-to-async"></span><span id="operator-start-async"></span><span id="operator-start"></span><h1>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-to-async-header"></span><span id="operator-start-async-header"></span><span id="operator-start-header"></span><h1>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/start.html">Start</a></li>
+</ul>
+</div>
+<span class="target" id="operator-start"></span><dl class="classmethod">
 <dt id="rx.Observable.start">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">start</code><span class="sig-paren">(</span><em>func</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes the specified function asynchronously on the specified
@@ -266,7 +277,7 @@ observe the function&#8217;s result.</p>
 <img alt="../../_images/start.png" class="align-center" src="../../_images/start.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-start-async"></span><dl class="classmethod">
 <dt id="rx.Observable.start_async">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">start_async</code><span class="sig-paren">(</span><em>function_async</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.start_async" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invokes the asynchronous function, surfacing the result through an
@@ -289,7 +300,7 @@ exception.</td>
 <img alt="../../_images/startAsync.png" class="align-center" src="../../_images/startAsync.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-to-async"></span><dl class="classmethod">
 <dt id="rx.Observable.to_async">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">to_async</code><span class="sig-paren">(</span><em>func</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.to_async" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the function into an asynchronous function. Each invocation

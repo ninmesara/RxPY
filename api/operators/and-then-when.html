@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="As observable" href="as_observable.html"/>
-        <link rel="prev" title="Amb" href="amb.html"/> 
+        <link rel="prev" title="Amb" href="amb.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -243,8 +247,15 @@
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="and-then-when">
-<span id="operator-when"></span><span id="operator-then-do"></span><span id="operator-and"></span><h1>And-then-when<a class="headerlink" href="#and-then-when" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-when-header"></span><span id="operator-then-do-header"></span><span id="operator-and-header"></span><h1>And-then-when<a class="headerlink" href="#and-then-when" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/and-then-when.html">AndThenWhen</a></li>
+</ul>
+</div>
+<span class="target" id="operator-and"></span><dl class="method">
 <dt id="rx.Observable.and_">
 <code class="descclassname">Observable.</code><code class="descname">and_</code><span class="sig-paren">(</span><em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.and_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a pattern that matches when both observable sequences
@@ -263,7 +274,7 @@ have an available value.</td>
 </table>
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-then-do"></span><dl class="method">
 <dt id="rx.Observable.then_do">
 <code class="descclassname">Observable.</code><code class="descname">then_do</code><span class="sig-paren">(</span><em>selector</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.then_do" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches when the observable sequence has an available value and projects
@@ -284,7 +295,7 @@ plans) to the when operator.</td>
 </table>
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-when"></span><dl class="classmethod">
 <dt id="rx.Observable.when">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">when</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.when" title="Permalink to this definition">¶</a></dt>
 <dd><p>Joins together the results from several patterns.</p>

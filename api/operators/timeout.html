@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Timer" href="timer.html"/>
-        <link rel="prev" title="Time interval" href="time_interval.html"/> 
+        <link rel="prev" title="Time interval" href="time_interval.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="timeout">
-<span id="operator-timeout-with-selector"></span><span id="operator-timeout"></span><h1>Timeout<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-timeout-with-selector-header"></span><span id="operator-timeout-header"></span><h1>Timeout<a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/timeout.html">Timeout</a></li>
+</ul>
+</div>
+<span class="target" id="operator-timeout"></span><dl class="method">
 <dt id="rx.Observable.timeout">
 <code class="descclassname">Observable.</code><code class="descname">timeout</code><span class="sig-paren">(</span><em>duetime</em>, <em>other=None</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.timeout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the source observable sequence or the other observable
@@ -307,7 +318,7 @@ of a timeout.</p>
 <img alt="../../_images/timeout6.png" class="align-center" src="../../_images/timeout6.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-timeout-with-selector"></span><dl class="method">
 <dt id="rx.Observable.timeout_with_selector">
 <code class="descclassname">Observable.</code><code class="descname">timeout_with_selector</code><span class="sig-paren">(</span><em>first_timeout=None</em>, <em>timeout_duration_selector=None</em>, <em>other=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.timeout_with_selector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the source observable sequence, switching to the other

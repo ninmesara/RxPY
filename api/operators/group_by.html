@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Ignore elements" href="ignore_elements.html"/>
-        <link rel="prev" title="From" href="from.html"/> 
+        <link rel="prev" title="From" href="from.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -243,8 +247,15 @@
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="group-by">
-<span id="operator-partition"></span><span id="operator-group-by-until"></span><span id="operator-group-by"></span><h1>Group by<a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-partition-header"></span><span id="operator-group-by-until-header"></span><span id="operator-group-by-header"></span><h1>Group by<a class="headerlink" href="#group-by" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/groupby.html">GroupBy</a></li>
+</ul>
+</div>
+<span class="target" id="operator-group-by"></span><dl class="method">
 <dt id="rx.Observable.group_by">
 <code class="descclassname">Observable.</code><code class="descname">group_by</code><span class="sig-paren">(</span><em>key_selector</em>, <em>element_selector=None</em>, <em>key_serializer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.group_by" title="Permalink to this definition">¶</a></dt>
 <dd><p>Groups the elements of an observable sequence according to a
@@ -272,7 +283,7 @@ value.</p>
 <img alt="../../_images/groupBy.png" class="align-center" src="../../_images/groupBy.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-group-by-until"></span><dl class="method">
 <dt id="rx.Observable.group_by_until">
 <code class="descclassname">Observable.</code><code class="descname">group_by_until</code><span class="sig-paren">(</span><em>key_selector</em>, <em>element_selector</em>, <em>duration_selector</em>, <em>comparer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.group_by_until" title="Permalink to this definition">¶</a></dt>
 <dd><p>Groups the elements of an observable sequence according to a
@@ -318,7 +329,7 @@ encountered.</p>
 <img alt="../../_images/groupByUntil.png" class="align-center" src="../../_images/groupByUntil.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-partition"></span><dl class="method">
 <dt id="rx.Observable.partition">
 <code class="descclassname">Observable.</code><code class="descname">partition</code><span class="sig-paren">(</span><em>predicate</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.partition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns two observables which partition the observations of the

@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Combine latest" href="combine_latest.html"/>
-        <link rel="prev" title="Case" href="case.html"/> 
+        <link rel="prev" title="Case" href="case.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="catch">
-<span id="operator-on-error-resume-next"></span><span id="operator-catch-exception"></span><h1>Catch<a class="headerlink" href="#catch" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-on-error-resume-next-header"></span><span id="operator-catch-exception-header"></span><h1>Catch<a class="headerlink" href="#catch" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/catch.html">Catch</a></li>
+</ul>
+</div>
+<span class="target" id="operator-catch-exception"></span><dl class="classmethod">
 <dt id="rx.Observable.catch_exception">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">catch_exception</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.catch_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Continues an observable sequence that is terminated by an
@@ -256,7 +267,7 @@ source sequences until a source sequence terminates successfully.</p>
 <img alt="../../_images/catch_exception.png" class="align-center" src="../../_images/catch_exception.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-on-error-resume-next"></span><dl class="classmethod">
 <dt id="rx.Observable.on_error_resume_next">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">on_error_resume_next</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.on_error_resume_next" title="Permalink to this definition">¶</a></dt>
 <dd><p>Continues an observable sequence that is terminated normally or by

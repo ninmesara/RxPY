@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Do" href="do.html"/>
-        <link rel="prev" title="Delay" href="delay.html"/> 
+        <link rel="prev" title="Delay" href="delay.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="distinct">
-<span id="operator-distinct-until-changed"></span><span id="operator-distinct"></span><h1>Distinct<a class="headerlink" href="#distinct" title="Permalink to this headline">¶</a></h1>
-<dl class="method">
+<span id="operator-distinct-until-changed-header"></span><span id="operator-distinct-header"></span><h1>Distinct<a class="headerlink" href="#distinct" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/distinct.html">Distinct</a></li>
+</ul>
+</div>
+<span class="target" id="operator-distinct"></span><dl class="method">
 <dt id="rx.Observable.distinct">
 <code class="descclassname">Observable.</code><code class="descname">distinct</code><span class="sig-paren">(</span><em>key_selector=None</em>, <em>comparer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.distinct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an observable sequence that contains only distinct elements
@@ -268,7 +279,7 @@ elements, based on a computed key value, from the source sequence.</p>
 <img alt="../../_images/distinct.png" class="align-center" src="../../_images/distinct.png" />
 </dd></dl>
 
-<dl class="method">
+<span class="target" id="operator-distinct-until-changed"></span><dl class="method">
 <dt id="rx.Observable.distinct_until_changed">
 <code class="descclassname">Observable.</code><code class="descname">distinct_until_changed</code><span class="sig-paren">(</span><em>key_selector=None</em>, <em>comparer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.distinct_until_changed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an observable sequence that contains only distinct

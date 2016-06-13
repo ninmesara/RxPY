@@ -35,7 +35,11 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Group by" href="group_by.html"/>
-        <link rel="prev" title="Flat map latest" href="flat_map_latest.html"/> 
+        <link rel="prev" title="Flat map latest" href="flat_map_latest.html"/>
+<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -238,13 +242,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
+  <div class="figure align-center" id="id2">
 <img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
 <p class="caption"><span class="caption-text">Under construction...</span></p>
 </div>
 <div class="section" id="from">
-<span id="operator-of"></span><span id="operator-from-list"></span><span id="operator-from-iterable"></span><span id="operator-from-future"></span><span id="operator-from-callback"></span><span id="operator-from"></span><h1>From<a class="headerlink" href="#from" title="Permalink to this headline">¶</a></h1>
-<dl class="classmethod">
+<span id="operator-of-header"></span><span id="operator-from-list-header"></span><span id="operator-from-iterable-header"></span><span id="operator-from-future-header"></span><span id="operator-from-callback-header"></span><span id="operator-from-header"></span><h1>From<a class="headerlink" href="#from" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/from.html">From</a></li>
+</ul>
+</div>
+<span class="target" id="operator-from"></span><dl class="classmethod">
 <dt id="rx.Observable.from_">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">from_</code><span class="sig-paren">(</span><em>iterable</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.from_" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts an array to an observable sequence, using an optional
@@ -269,7 +280,7 @@ given enumerable sequence.</td>
 </table>
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-from-callback"></span><dl class="classmethod">
 <dt id="rx.Observable.from_callback">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">from_callback</code><span class="sig-paren">(</span><em>func</em>, <em>selector=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.from_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a callback function to an observable sequence.</p>
@@ -287,7 +298,7 @@ single value of the arguments to the callback as a list.</p>
 <img alt="../../_images/fromCallback.png" class="align-center" src="../../_images/fromCallback.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-from-future"></span><dl class="classmethod">
 <dt id="rx.Observable.from_future">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">from_future</code><span class="sig-paren">(</span><em>future</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.from_future" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a Future to an Observable sequence</p>
@@ -301,7 +312,7 @@ future success and failure.</p>
 <img alt="../../_images/fromFuture.png" class="align-center" src="../../_images/fromFuture.png" />
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-from-iterable"></span><dl class="classmethod">
 <dt id="rx.Observable.from_iterable">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">from_iterable</code><span class="sig-paren">(</span><em>iterable</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.from_iterable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts an array to an observable sequence, using an optional
@@ -326,7 +337,7 @@ given enumerable sequence.</td>
 </table>
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-from-list"></span><dl class="classmethod">
 <dt id="rx.Observable.from_list">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">from_list</code><span class="sig-paren">(</span><em>iterable</em>, <em>scheduler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.from_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts an array to an observable sequence, using an optional
@@ -351,7 +362,7 @@ given enumerable sequence.</td>
 </table>
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-of"></span><dl class="classmethod">
 <dt id="rx.Observable.of">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">of</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.of" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method creates a new Observable instance with a variable number
