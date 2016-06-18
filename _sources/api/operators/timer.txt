@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_timer_header:
+.. _operator-header-timer:
 
 
 Timer
@@ -17,16 +17,16 @@ Timer
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Timer <http://reactivex.io/documentation/operators/timer.html>`_
+   - Official ReactiveX documentation:
+     `Timer <http://reactivex.io/documentation/operators/timer.html>`_
 
 
 
-.. _operator_timer:
+.. _operator-timer:
 
 .. automethod:: Observable.timer
 
-    
-    .. image:: /img/reactivex/operators/timer.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/timer.png
+      :align: center
+   

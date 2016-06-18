@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_scan_header:
+.. _operator-header-scan:
 
 
 Scan
@@ -17,16 +17,16 @@ Scan
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Scan <http://reactivex.io/documentation/operators/scan.html>`_
+   - Official ReactiveX documentation:
+     `Scan <http://reactivex.io/documentation/operators/scan.html>`_
 
 
 
-.. _operator_scan:
+.. _operator-scan:
 
 .. automethod:: Observable.scan
 
-    
-    .. image:: /img/reactivex/operators/scan.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/scan.png
+      :align: center
+   

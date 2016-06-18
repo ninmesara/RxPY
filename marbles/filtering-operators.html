@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Filtering Operators &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../index.html"/>
+        <link rel="up" title="Interactive Marble Diagrams" href="index.html"/>
+        <link rel="next" title="Mathematical Operators" href="mathematical-operators.html"/>
+        <link rel="prev" title="Combining Operators" href="combining-operators.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Public API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Interactive Marble Diagrams</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="transforming-operators.html">Transforming Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="combining-operators.html">Combining Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Filtering Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#distinct">distinct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distinct-until-changed">distinct_until_changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#element-at">element_at</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter">filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#find">find</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first">first</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#last">last</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pausable">pausable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pausable-buffered">pausable_buffered</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skip">skip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skip-last">skip_last</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skip-until">skip_until</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#take">take</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#take-last">take_last</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#take-until">take_until</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mathematical-operators.html">Mathematical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean-operators.html">Boolean Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional-operators.html">Conditional Operators</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Interactive Marble Diagrams</a> &raquo;</li>
+      
+    <li>Filtering Operators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/marbles/filtering-operators.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filtering-operators">
+<h1>Filtering Operators<a class="headerlink" href="#filtering-operators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="distinct">
+<span id="operator-marbles-distinct"></span><h2>distinct<a class="headerlink" href="#distinct" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="distinct-until-changed">
+<span id="operator-marbles-distinct-until-changed"></span><h2>distinct_until_changed<a class="headerlink" href="#distinct-until-changed" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="element-at">
+<span id="operator-marbles-element-at"></span><h2>element_at<a class="headerlink" href="#element-at" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="filter">
+<span id="operator-marbles-filter"></span><h2>filter<a class="headerlink" href="#filter" title="Permalink to this headline">¶</a></h2>
+<div id="filter-example-.odd-_12345-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.filter(lambda x: x % 2 == 1)",Marbles.operators.filter(Marbles.functions.odd), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles._12345, 1.0)
+           ]);
+  opExample.render("filter-example-.odd-_12345-1_0", 600, 60);
+</script></div>
+<div class="section" id="find">
+<span id="operator-marbles-find"></span><h2>find<a class="headerlink" href="#find" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="first">
+<span id="operator-marbles-first"></span><h2>first<a class="headerlink" href="#first" title="Permalink to this headline">¶</a></h2>
+<div id="first-example-abcd-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.first()",Marbles.operators.first, [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("first-example-abcd-1_0", 600, 60);
+</script></div>
+<div class="section" id="last">
+<span id="operator-marbles-last"></span><h2>last<a class="headerlink" href="#last" title="Permalink to this headline">¶</a></h2>
+<div id="last-example-abcd-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.last()",Marbles.operators.last, [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("last-example-abcd-1_0", 600, 60);
+</script></div>
+<div class="section" id="pausable">
+<span id="operator-marbles-pausable"></span><h2>pausable<a class="headerlink" href="#pausable" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pausable-buffered">
+<span id="operator-marbles-pausable-buffered"></span><h2>pausable_buffered<a class="headerlink" href="#pausable-buffered" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="skip">
+<span id="operator-marbles-skip"></span><h2>skip<a class="headerlink" href="#skip" title="Permalink to this headline">¶</a></h2>
+<div id="skip-example-2-abcd-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.skip(2)",Marbles.operators.skip(2), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("skip-example-2-abcd-1_0", 600, 60);
+</script></div>
+<div class="section" id="skip-last">
+<span id="operator-marbles-skip-last"></span><h2>skip_last<a class="headerlink" href="#skip-last" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="skip-until">
+<span id="operator-marbles-skip-until"></span><h2>skip_until<a class="headerlink" href="#skip-until" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="take">
+<span id="operator-marbles-take"></span><h2>take<a class="headerlink" href="#take" title="Permalink to this headline">¶</a></h2>
+<div id="take-example-3-abcd-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.take(3)",Marbles.operators.take(3), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("take-example-3-abcd-1_0", 600, 60);
+</script></div>
+<div class="section" id="take-last">
+<span id="operator-marbles-take-last"></span><h2>take_last<a class="headerlink" href="#take-last" title="Permalink to this headline">¶</a></h2>
+<div id="take_last-example-2-abcd-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.take_last(2)",Marbles.operators.takeLast(2), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("take_last-example-2-abcd-1_0", 600, 60);
+</script></div>
+<div class="section" id="take-until">
+<span id="operator-marbles-take-until"></span><h2>take_until<a class="headerlink" href="#take-until" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mathematical-operators.html" class="btn btn-neutral float-right" title="Mathematical Operators" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="combining-operators.html" class="btn btn-neutral" title="Combining Operators" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/marbles/svg.min.js"></script>
+      <script type="text/javascript" src="../_static/marbles/svg.draggable.min.js"></script>
+      <script type="text/javascript" src="../_static/marbles/marbles.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

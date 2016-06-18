@@ -1,0 +1,19 @@
+
+Interactive Marble Diagrams
+###########################
+
+.. toctree::
+   
+   
+   transforming-operators
+   
+   combining-operators
+   
+   filtering-operators
+   
+   mathematical-operators
+   
+   boolean-operators
+   
+   conditional-operators
+   

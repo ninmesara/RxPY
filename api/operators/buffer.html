@@ -35,11 +35,7 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Case" href="case.html"/>
-        <link rel="prev" title="Average" href="average.html"/>
-<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
-
+        <link rel="prev" title="Average" href="average.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -127,6 +123,8 @@
 <li class="toctree-l4"><a class="reference internal" href="flat_map.html">Flat map</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flat_map_latest.html">Flat map latest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="from.html">From</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_marbles.html">From marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_string.html">From string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="group_by.html">Group by</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ignore_elements.html">Ignore elements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="interval.html">Interval</a></li>
@@ -179,6 +177,8 @@
 <li class="toctree-l4"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="timestamp.html">Timestamp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="to.html">To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_marbles.html">To marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_string.html">To string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="transduce.html">Transduce</a></li>
 <li class="toctree-l4"><a class="reference internal" href="using.html">Using</a></li>
 <li class="toctree-l4"><a class="reference internal" href="while_do.html">While do</a></li>
@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../marbles/index.html">Interactive Marble Diagrams</a></li>
 </ul>
 
             
@@ -242,12 +243,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id2">
-<img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
-<p class="caption"><span class="caption-text">Under construction...</span></p>
-</div>
-<div class="section" id="buffer">
-<span id="operator-pairwise-header"></span><span id="operator-buffer-with-time-or-count-header"></span><span id="operator-buffer-with-time-header"></span><span id="operator-buffer-with-count-header"></span><span id="operator-buffer-header"></span><h1>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="buffer">
+<span id="operator-header-pairwise"></span><span id="operator-header-buffer-with-time-or-count"></span><span id="operator-header-buffer-with-time"></span><span id="operator-header-buffer-with-count"></span><span id="operator-header-buffer"></span><h1>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h1>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <ul class="last simple">
@@ -273,9 +270,7 @@ closed, resulting in non-overlapping windows).</dd>
 specified for the first parameter, self parameter is ignored.</dd>
 </dl>
 <p>Returns an observable sequence of windows.</p>
-<img alt="../../_images/buffer1.png" class="align-center" src="../../_images/buffer1.png" />
 <img alt="../../_images/buffer1.py.png" class="align-center" src="../../_images/buffer1.py.png" />
-<img alt="../../_images/buffer2.png" class="align-center" src="../../_images/buffer2.png" />
 <img alt="../../_images/buffer2.py.png" class="align-center" src="../../_images/buffer2.py.png" />
 <img alt="../../_images/buffer3.png" class="align-center" src="../../_images/buffer3.png" />
 <img alt="../../_images/buffer4.png" class="align-center" src="../../_images/buffer4.png" />
@@ -285,7 +280,6 @@ specified for the first parameter, self parameter is ignored.</dd>
 <img alt="../../_images/buffer6.s.png" class="align-center" src="../../_images/buffer6.s.png" />
 <img alt="../../_images/buffer7.png" class="align-center" src="../../_images/buffer7.png" />
 <img alt="../../_images/buffer7.s.png" class="align-center" src="../../_images/buffer7.s.png" />
-<img alt="../../_images/buffer8.png" class="align-center" src="../../_images/buffer8.png" />
 <img alt="../../_images/buffer8.py.png" class="align-center" src="../../_images/buffer8.py.png" />
 </dd></dl>
 
@@ -303,11 +297,32 @@ skip &#8211; {Number} [Optional] Number of elements to skip between creation</p>
 <blockquote>
 <div>of consecutive buffers. If not provided, defaults to the count.</div></blockquote>
 <p>Returns an observable {Observable} sequence of buffers.</p>
-<img alt="../../_images/bufferWithCount3.png" class="align-center" src="../../_images/bufferWithCount3.png" />
-<img alt="../../_images/bufferWithCount4.png" class="align-center" src="../../_images/bufferWithCount4.png" />
 <img alt="../../_images/buffer_with_count3.py.png" class="align-center" src="../../_images/buffer_with_count3.py.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="o">.</span><span class="n">buffer_with_count</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: [&#39;red&#39;, &#39;yellow&#39;, &#39;green&#39;]</span>
+<span class="go">Next: [&#39;cyan&#39;, &#39;blue&#39;, &#39;purple&#39;]</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 <img alt="../../_images/buffer_with_count4.py.png" class="align-center" src="../../_images/buffer_with_count4.py.png" />
-<img alt="../../_images/buffer_with_count4.rb.png" class="align-center" src="../../_images/buffer_with_count4.rb.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_</span><span class="p">(</span><span class="n">items</span><span class="p">)</span><span class="o">.</span><span class="n">buffer_with_count</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">skip</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: [&#39;red&#39;, &#39;yellow&#39;]</span>
+<span class="go">Next: [&#39;cyan&#39;, &#39;blue&#39;]</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="operator-buffer-with-time"></span><dl class="method">
@@ -336,7 +351,39 @@ adjacent buffers.</dd>
 <img alt="../../_images/bufferWithTime5.png" class="align-center" src="../../_images/bufferWithTime5.png" />
 <img alt="../../_images/bufferWithTime7.png" class="align-center" src="../../_images/bufferWithTime7.png" />
 <img alt="../../_images/buffer_with_time5.py.png" class="align-center" src="../../_images/buffer_with_time5.py.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ryg</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cbp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">ryg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ys</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">cbp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span><span class="o">.</span><span class="n">buffer_with_time</span><span class="p">(</span><span class="n">timespan</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: [&#39;red&#39;, &#39;yellow&#39;]</span>
+<span class="go">Next: [&#39;green&#39;, &#39;cyan&#39;]</span>
+<span class="go">Next: [&#39;blue&#39;, &#39;purple&#39;]</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 <img alt="../../_images/buffer_with_time7.py.png" class="align-center" src="../../_images/buffer_with_time7.py.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rygc</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">rygc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ys</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">bp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span><span class="o">.</span><span class="n">buffer_with_time</span><span class="p">(</span><span class="n">timeshift</span><span class="o">=</span><span class="mi">110</span><span class="p">,</span> <span class="n">timespan</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: [&#39;red&#39;]</span>
+<span class="go">Next: [&#39;green&#39;, &#39;cyan&#39;]</span>
+<span class="go">Next: [&#39;blue&#39;]</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="operator-buffer-with-time-or-count"></span><dl class="method">
@@ -356,8 +403,28 @@ scheduler &#8211; [Optional] Scheduler to run bufferin timers on. If not</p>
 <blockquote>
 <div>specified, the timeout scheduler is used.</div></blockquote>
 <p>Returns an observable sequence of buffers.</p>
-<img alt="../../_images/bufferWithTimeOrCount6.png" class="align-center" src="../../_images/bufferWithTimeOrCount6.png" />
 <img alt="../../_images/buffer_with_time_or_count6.py.png" class="align-center" src="../../_images/buffer_with_time_or_count6.py.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rx.core</span> <span class="k">import</span> <span class="n">Scheduler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ryg</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cbp</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">ryg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ys</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">cbp</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">ys</span><span class="p">)</span> \
+<span class="gp">... </span>    <span class="o">.</span><span class="n">buffer_with_time_or_count</span><span class="p">(</span><span class="n">timespan</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+<span class="gp">... </span>                               <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="gp">... </span>                               <span class="n">scheduler</span><span class="o">=</span><span class="n">Scheduler</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: [&#39;red&#39;, &#39;yellow&#39;]</span>
+<span class="go">Next: [&#39;green&#39;]</span>
+<span class="go">Next: [&#39;cyan&#39;, &#39;blue&#39;]</span>
+<span class="go">Next: [&#39;purple&#39;]</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="operator-pairwise"></span><dl class="method">
@@ -425,6 +492,10 @@ observations from the input observable as an array.</p>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+      <script type="text/javascript" src="../../_static/copybutton.js"></script>
 
   
 

@@ -1,15 +1,14 @@
-.. !!!AUTO!!! (remove this comment to edit)
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: default
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_interval_header:
+.. _operator-header-interval:
 
 
 Interval
@@ -17,16 +16,35 @@ Interval
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Interval <http://reactivex.io/documentation/operators/interval.html>`_
+   - Official ReactiveX documentation:
+     `Interval <http://reactivex.io/documentation/operators/interval.html>`_
 
 
 
-.. _operator_interval:
+.. _operator-interval:
 
 .. automethod:: Observable.interval
 
-    
-    .. image:: /img/reactivex/operators/interval.png
-        :align: center
-    
+   .. image:: /img/reactivex/operators/interval.png
+      :align: center
+   
+   .. code-block:: pycon
+
+      >>> import time
+      >>> source = rx.Observable.interval(50).take(5)
+      >>> def millis_since(t0):
+      ...     return int((time.time() - t0)*1000)
+      >>> start = time.time()
+      >>> subscription = source.subscribe(
+      ...     lambda value: print("Next: {} \t({} ms)".\
+      ...                     format(value, millis_since(start))),
+      ...     lambda error: print("Error: {} \t({} ms)".\
+      ...                     format(error, millis_since(start))),
+      ...     lambda: print("Complete! \t({} ms)".\
+      ...                     format(millis_since(start))))
+      Next: 0       (54 ms)
+      Next: 1       (104 ms)
+      Next: 2       (155 ms)
+      Next: 3       (206 ms)
+      Next: 4       (263 ms)
+      Complete!     (263 ms)

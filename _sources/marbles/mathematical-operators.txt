@@ -1,0 +1,71 @@
+
+.. include:: /api/operators/operator-aliases.rst
+
+Mathematical Operators
+======================
+
+
+
+.. _operator-marbles-average:
+
+average
+-------
+
+
+.. include:: /assets/marbles/average-example-_12345-1_0.rst
+
+
+
+.. _operator-marbles-count:
+
+count
+-----
+
+
+.. include:: /assets/marbles/count-example-.odd-_12345-1_0.rst
+
+
+
+.. _operator-marbles-max:
+
+max
+---
+
+
+.. include:: /assets/marbles/max-example-_12345-1_0.rst
+
+
+
+.. _operator-marbles-min:
+
+min
+---
+
+
+.. include:: /assets/marbles/min-example-_12345-1_0.rst
+
+
+
+.. _operator-marbles-reduce:
+
+reduce
+------
+
+
+.. include:: /assets/marbles/reduce-example--_12345-1_0.rst
+
+.. include:: /assets/marbles/reduce-example-.f2-xyz-0_75.rst
+
+.. include:: /assets/marbles/reduce-example-.f2-abcd-0_95.rst
+
+
+
+.. _operator-marbles-sum:
+
+sum
+---
+
+
+.. include:: /assets/marbles/sum-example-_12345-1_0.rst
+
+

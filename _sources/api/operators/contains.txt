@@ -2,18 +2,18 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_contains_header:
-.. _operator_find_header:
-.. _operator_find_index_header:
-.. _operator_is_empty_header:
-.. _operator_some_header:
+.. _operator-header-contains:
+.. _operator-header-find:
+.. _operator-header-find_index:
+.. _operator-header-is_empty:
+.. _operator-header-some:
 
 
 Contains
@@ -21,53 +21,53 @@ Contains
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Contains <http://reactivex.io/documentation/operators/contains.html>`_
+   - Official ReactiveX documentation:
+     `Contains <http://reactivex.io/documentation/operators/contains.html>`_
 
 
 
-.. _operator_contains:
+.. _operator-contains:
 
 .. automethod:: Observable.contains
 
-    
-    .. image:: /img/reactivex/operators/contains.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/contains.png
+      :align: center
+   
 
 
-.. _operator_find:
+.. _operator-find:
 
 .. automethod:: Observable.find
 
-    
-    .. image:: /img/reactivex/operators/find.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/find.png
+      :align: center
+   
 
 
-.. _operator_find_index:
+.. _operator-find_index:
 
 .. automethod:: Observable.find_index
 
-    
-    .. image:: /img/reactivex/operators/findIndex.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/findIndex.png
+      :align: center
+   
 
 
-.. _operator_is_empty:
+.. _operator-is_empty:
 
 .. automethod:: Observable.is_empty
 
-    
-    .. image:: /img/reactivex/operators/isEmpty.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/isEmpty.png
+      :align: center
+   
 
 
-.. _operator_some:
+.. _operator-some:
 
 .. automethod:: Observable.some
 
-    
+   

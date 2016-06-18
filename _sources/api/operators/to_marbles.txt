@@ -1,0 +1,29 @@
+.. !!!AUTO!!! (remove this comment to edit)
+
+.. include:: operator-aliases.rst
+
+.. testsetup:: *
+
+   import rx
+
+
+.. currentmodule:: rx
+
+.. _operator-header-to_marbles:
+
+
+To marbles
+==========
+
+.. seealso::
+
+   - Official ReactiveX documentation:
+     `ToMarbles <http://reactivex.io/documentation/operators/tomarbles.html>`_
+
+
+
+.. _operator-to_marbles:
+
+.. automethod:: Observable.to_marbles
+
+   

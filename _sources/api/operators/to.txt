@@ -2,20 +2,20 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_to_async_header:
-.. _operator_to_blocking_header:
-.. _operator_to_dict_header:
-.. _operator_to_future_header:
-.. _operator_to_iterable_header:
-.. _operator_to_list_header:
-.. _operator_to_set_header:
+.. _operator-header-to_async:
+.. _operator-header-to_blocking:
+.. _operator-header-to_dict:
+.. _operator-header-to_future:
+.. _operator-header-to_iterable:
+.. _operator-header-to_list:
+.. _operator-header-to_set:
 
 
 To
@@ -23,61 +23,61 @@ To
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `To <http://reactivex.io/documentation/operators/to.html>`_
+   - Official ReactiveX documentation:
+     `To <http://reactivex.io/documentation/operators/to.html>`_
 
 
 
-.. _operator_to_async:
+.. _operator-to_async:
 
 .. automethod:: Observable.to_async
 
-    
-    .. image:: /img/reactivex/operators/toAsync.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/toAsync.png
+      :align: center
+   
 
 
-.. _operator_to_blocking:
+.. _operator-to_blocking:
 
 .. automethod:: Observable.to_blocking
 
-    
+   
 
 
-.. _operator_to_dict:
+.. _operator-to_dict:
 
 .. automethod:: Observable.to_dict
 
-    
+   
 
 
-.. _operator_to_future:
+.. _operator-to_future:
 
 .. automethod:: Observable.to_future
 
-    
+   
 
 
-.. _operator_to_iterable:
+.. _operator-to_iterable:
 
 .. automethod:: Observable.to_iterable
 
-    
+   
 
 
-.. _operator_to_list:
+.. _operator-to_list:
 
 .. automethod:: Observable.to_list
 
-    
-    .. image:: /img/reactivex/operators/toList.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/toList.png
+      :align: center
+   
 
 
-.. _operator_to_set:
+.. _operator-to_set:
 
 .. automethod:: Observable.to_set
 
-    
+   

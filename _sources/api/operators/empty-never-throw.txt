@@ -2,17 +2,17 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_empty_header:
-.. _operator_never_header:
-.. _operator_throw_header:
-.. _operator_throw_exception_header:
+.. _operator-header-empty:
+.. _operator-header-never:
+.. _operator-header-throw:
+.. _operator-header-throw_exception:
 
 
 Empty-never-throw
@@ -20,40 +20,40 @@ Empty-never-throw
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `EmptyNeverThrow <http://reactivex.io/documentation/operators/empty-never-throw.html>`_
+   - Official ReactiveX documentation:
+     `EmptyNeverThrow <http://reactivex.io/documentation/operators/empty-never-throw.html>`_
 
 
 
-.. _operator_empty:
+.. _operator-empty:
 
 .. automethod:: Observable.empty
 
-    
-    .. image:: /img/reactivex/operators/empty.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/empty.png
+      :align: center
+   
 
 
-.. _operator_never:
+.. _operator-never:
 
 .. automethod:: Observable.never
 
-    
-    .. image:: /img/reactivex/operators/never.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/never.png
+      :align: center
+   
 
 
-.. _operator_throw:
+.. _operator-throw:
 
 .. automethod:: Observable.throw
 
-    
+   
 
 
-.. _operator_throw_exception:
+.. _operator-throw_exception:
 
 .. automethod:: Observable.throw_exception
 
-    
+   

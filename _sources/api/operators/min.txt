@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_min_header:
+.. _operator-header-min:
 
 
 Min
@@ -17,16 +17,16 @@ Min
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Min <http://reactivex.io/documentation/operators/min.html>`_
+   - Official ReactiveX documentation:
+     `Min <http://reactivex.io/documentation/operators/min.html>`_
 
 
 
-.. _operator_min:
+.. _operator-min:
 
 .. automethod:: Observable.min
 
-    
-    .. image:: /img/reactivex/operators/min.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/min.png
+      :align: center
+   

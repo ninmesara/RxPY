@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_transduce_header:
+.. _operator-header-transduce:
 
 
 Transduce
@@ -17,13 +17,13 @@ Transduce
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Transduce <http://reactivex.io/documentation/operators/transduce.html>`_
+   - Official ReactiveX documentation:
+     `Transduce <http://reactivex.io/documentation/operators/transduce.html>`_
 
 
 
-.. _operator_transduce:
+.. _operator-transduce:
 
 .. automethod:: Observable.transduce
 
-    
+   

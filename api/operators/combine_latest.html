@@ -35,11 +35,7 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Concat" href="concat.html"/>
-        <link rel="prev" title="Catch" href="catch.html"/>
-<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
-
+        <link rel="prev" title="Catch" href="catch.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -127,6 +123,8 @@
 <li class="toctree-l4"><a class="reference internal" href="flat_map.html">Flat map</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flat_map_latest.html">Flat map latest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="from.html">From</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_marbles.html">From marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_string.html">From string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="group_by.html">Group by</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ignore_elements.html">Ignore elements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="interval.html">Interval</a></li>
@@ -179,6 +177,8 @@
 <li class="toctree-l4"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="timestamp.html">Timestamp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="to.html">To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_marbles.html">To marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_string.html">To string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="transduce.html">Transduce</a></li>
 <li class="toctree-l4"><a class="reference internal" href="using.html">Using</a></li>
 <li class="toctree-l4"><a class="reference internal" href="while_do.html">While do</a></li>
@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../marbles/index.html">Interactive Marble Diagrams</a></li>
 </ul>
 
             
@@ -242,62 +243,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
-<img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
-<p class="caption"><span class="caption-text">Under construction...</span></p>
-</div>
-<div class="section" id="combine-latest">
-<span id="operator-with-latest-from"></span><span id="operator-combine-latest"></span><h1>Combine latest<a class="headerlink" href="#combine-latest" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>When an item is emitted by either of two Observables, combine the latest
-item emitted by each Observable via a specified function and emit items
-based on the results of this function</div></blockquote>
-<p>The <a class="reference internal" href="#operator-combine-latest"><span class="std std-ref">combine_latest</span></a> operator behaves in a similar way to <a class="reference internal" href="zip.html#operator-zip"><span class="std std-ref">zip</span></a>, but while
-<a class="reference internal" href="zip.html#operator-zip"><span class="std std-ref">zip</span></a> emits items only when each of the zipped source Observables have emitted
-a previously unzipped item, <a class="reference internal" href="#operator-combine-latest"><span class="std std-ref">combine_latest</span></a> emits an item whenever any of the
-source Observables emits an item (so long as each of the source Observables has
-emitted at least one item). When any of the source Observables emits an item,
-<a class="reference internal" href="#operator-combine-latest"><span class="std std-ref">combine_latest</span></a> combines the most recently emitted items from each of the other
-source Observables, using a function you provide, and emits the return value
-from that function.</p>
-<div id="combine_latest-generic-f-example"></div>
-<script>
-  var M = Marbles
-  var E = M.examples.marbles
-  var f = M.functions.f
-
-  var A = M.Observable(true, "p", E.abcd, 1.0);
-  var X = M.Observable(true, "q", E.xyz, 1.0);
-  var opMerge = M.Operator("p.combine_latest(q, f)",
-                  M.operators.combineLatest(f), [A, X]);
-  opMerge.render("combine_latest-generic-f-example", 600, 60);
-</script><p>Besides <a class="reference internal" href="#operator-combine-latest"><span class="std std-ref">combine_latest</span></a>, RxPY also defines a related operator,
-<a class="reference internal" href="#operator-with-latest-from"><span class="std std-ref">with_latest_from</span></a>.  It is similar to <a class="reference internal" href="#operator-combine-latest"><span class="std std-ref">combine_latest</span></a>, but only emits items when
-the single source Observable emits an item (not when <em>any</em> of the Observables
-that are passed to the operator do, as <a class="reference internal" href="#operator-combine-latest"><span class="std std-ref">combine_latest</span></a> does).</p>
-<div id="with_latest_from-generic-f-example"></div>
-
-<script>
-  var M = Marbles
-  var E = M.examples.marbles
-  var f = M.functions.f
-
-  var A = M.Observable(true, "p", E.abcd, 1.0);
-  var X = M.Observable(true, "q", E.xyz, 1.0);
-  var opMerge = M.Operator("p.with_latest_from(q, f)",
-                 M.operators.withLatestFrom(f), [A, X]);
-  opMerge.render("with_latest_from-generic-f-example", 600, 60);
-</script><div class="admonition seealso">
+  <div class="section" id="combine-latest">
+<span id="operator-header-with-latest-from"></span><span id="operator-header-combine-latest"></span><h1>Combine latest<a class="headerlink" href="#combine-latest" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <ul class="last simple">
 <li><a class="reference internal" href="zip.html#operator-zip"><span class="std std-ref">zip</span></a></li>
 <li>Official ReactiveX documentation:
 <a class="reference external" href="http://reactivex.io/documentation/operators/combinelatest.html">CombineLatest</a></li>
-<li>RxMarbles: combineLatest</li>
-<li>RxMarbles: withLatestFrom</li>
+<li>RxPY marbles: <a href="#id1"><span class="problematic" id="id2">|operator-marbles-combine_latest|</span></a></li>
+<li>RxPY marbles: <a href="#id3"><span class="problematic" id="id4">|operator-marbles-with_latest_from|</span></a></li>
 </ul>
 </div>
-<dl class="classmethod">
+<span class="target" id="operator-combine-latest"></span><dl class="classmethod">
 <dt id="rx.Observable.combine_latest">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">combine_latest</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.combine_latest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges the specified observable sequences into one observable
@@ -313,9 +271,27 @@ observable sequences produces an element.</p>
 elements of the sources using the specified result selector
 function.</p>
 <img alt="../../_images/combineLatest.png" class="align-center" src="../../_images/combineLatest.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rx.testing</span> <span class="k">import</span> <span class="n">marbles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_marbles</span><span class="p">(</span><span class="s1">&#39;1-2-3-4-|&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ys</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_marbles</span><span class="p">(</span><span class="s1">&#39;-a-b-c-d-e|&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">combine_latest</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">))</span>
+<span class="go">Next: 2a</span>
+<span class="go">Next: 3a</span>
+<span class="go">Next: 3b</span>
+<span class="go">Next: 4b</span>
+<span class="go">Next: 4c</span>
+<span class="go">Next: 4d</span>
+<span class="go">Next: 4e</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
-<dl class="classmethod">
+<span class="target" id="operator-with-latest-from"></span><dl class="classmethod">
 <dt id="rx.Observable.with_latest_from">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">with_latest_from</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.with_latest_from" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges the specified observable sequences into one observable sequence
@@ -335,6 +311,20 @@ arguments or as a list.</p>
 <p>Returns an observable sequence containing the result of combining
 elements of the sources using the specified result selector function.</p>
 <img alt="../../_images/withLatestFrom.png" class="align-center" src="../../_images/withLatestFrom.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rx.testing</span> <span class="k">import</span> <span class="n">marbles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_marbles</span><span class="p">(</span><span class="s1">&#39;1--2-3-4-|&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ys</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_marbles</span><span class="p">(</span><span class="s1">&#39;-a-b-c-d-e|&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">combine_latest</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">))</span>
+<span class="go">Next: 2a</span>
+<span class="go">Next: 3b</span>
+<span class="go">Next: 4c</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -390,6 +380,10 @@ elements of the sources using the specified result selector function.</p>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+      <script type="text/javascript" src="../../_static/copybutton.js"></script>
 
   
 

@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_observe_on_header:
+.. _operator-header-observe_on:
 
 
 Observe on
@@ -17,16 +17,16 @@ Observe on
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `ObserveOn <http://reactivex.io/documentation/operators/observeon.html>`_
+   - Official ReactiveX documentation:
+     `ObserveOn <http://reactivex.io/documentation/operators/observeon.html>`_
 
 
 
-.. _operator_observe_on:
+.. _operator-observe_on:
 
 .. automethod:: Observable.observe_on
 
-    
-    .. image:: /img/reactivex/operators/observeOn.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/observeOn.png
+      :align: center
+   

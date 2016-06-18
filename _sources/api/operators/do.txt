@@ -2,16 +2,16 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_do_action_header:
-.. _operator_finally_action_header:
-.. _operator_tap_header:
+.. _operator-header-do_action:
+.. _operator-header-finally_action:
+.. _operator-header-tap:
 
 
 Do
@@ -19,27 +19,27 @@ Do
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Do <http://reactivex.io/documentation/operators/do.html>`_
+   - Official ReactiveX documentation:
+     `Do <http://reactivex.io/documentation/operators/do.html>`_
 
 
 
-.. _operator_do_action:
+.. _operator-do_action:
 
 .. automethod:: Observable.do_action
 
-    
+   
 
 
-.. _operator_finally_action:
+.. _operator-finally_action:
 
 .. automethod:: Observable.finally_action
 
-    
+   
 
 
-.. _operator_tap:
+.. _operator-tap:
 
 .. automethod:: Observable.tap
 
-    
+   

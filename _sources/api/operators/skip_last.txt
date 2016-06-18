@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_skip_last_header:
-.. _operator_skip_last_with_time_header:
+.. _operator-header-skip_last:
+.. _operator-header-skip_last_with_time:
 
 
 Skip last
@@ -18,26 +18,26 @@ Skip last
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `SkipLast <http://reactivex.io/documentation/operators/skiplast.html>`_
+   - Official ReactiveX documentation:
+     `SkipLast <http://reactivex.io/documentation/operators/skiplast.html>`_
 
 
 
-.. _operator_skip_last:
+.. _operator-skip_last:
 
 .. automethod:: Observable.skip_last
 
-    
-    .. image:: /img/reactivex/operators/skipLast.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/skipLast.png
+      :align: center
+   
 
 
-.. _operator_skip_last_with_time:
+.. _operator-skip_last_with_time:
 
 .. automethod:: Observable.skip_last_with_time
 
-    
-    .. image:: /img/reactivex/operators/skipLastWithTime.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/skipLastWithTime.png
+      :align: center
+   

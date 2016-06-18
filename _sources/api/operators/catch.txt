@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_catch_exception_header:
-.. _operator_on_error_resume_next_header:
+.. _operator-header-catch_exception:
+.. _operator-header-on_error_resume_next:
 
 
 Catch
@@ -18,26 +18,26 @@ Catch
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Catch <http://reactivex.io/documentation/operators/catch.html>`_
+   - Official ReactiveX documentation:
+     `Catch <http://reactivex.io/documentation/operators/catch.html>`_
 
 
 
-.. _operator_catch_exception:
+.. _operator-catch_exception:
 
 .. automethod:: Observable.catch_exception
 
-    
-    .. image:: /img/reactivex/operators/catch_exception.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/catch_exception.png
+      :align: center
+   
 
 
-.. _operator_on_error_resume_next:
+.. _operator-on_error_resume_next:
 
 .. automethod:: Observable.on_error_resume_next
 
-    
-    .. image:: /img/reactivex/operators/on_error_resume_next.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/on_error_resume_next.png
+      :align: center
+   

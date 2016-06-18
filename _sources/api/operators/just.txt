@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_just_header:
-.. _operator_return_value_header:
+.. _operator-header-just:
+.. _operator-header-return_value:
 
 
 Just
@@ -18,23 +18,23 @@ Just
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Just <http://reactivex.io/documentation/operators/just.html>`_
+   - Official ReactiveX documentation:
+     `Just <http://reactivex.io/documentation/operators/just.html>`_
 
 
 
-.. _operator_just:
+.. _operator-just:
 
 .. automethod:: Observable.just
 
-    
-    .. image:: /img/reactivex/operators/just.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/just.png
+      :align: center
+   
 
 
-.. _operator_return_value:
+.. _operator-return_value:
 
 .. automethod:: Observable.return_value
 
-    
+   

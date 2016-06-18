@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Combining Operators &mdash; RxPY 1.5.2 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/RxPY.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="RxPY 1.5.2 documentation" href="../index.html"/>
+        <link rel="up" title="Interactive Marble Diagrams" href="index.html"/>
+        <link rel="next" title="Filtering Operators" href="filtering-operators.html"/>
+        <link rel="prev" title="Transforming Operators" href="transforming-operators.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> RxPY
+          
+
+          
+            
+            <img src="../_static/RxPY.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.5.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">Public API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Interactive Marble Diagrams</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="transforming-operators.html">Transforming Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Combining Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#combine-latest">combine_latest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concat">concat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merge">merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample">sample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-with">start_with</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#with-latest-from">with_latest_from</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zip">zip</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="filtering-operators.html">Filtering Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathematical-operators.html">Mathematical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="boolean-operators.html">Boolean Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional-operators.html">Conditional Operators</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">RxPY</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Interactive Marble Diagrams</a> &raquo;</li>
+      
+    <li>Combining Operators</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/marbles/combining-operators.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="combining-operators">
+<h1>Combining Operators<a class="headerlink" href="#combining-operators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="combine-latest">
+<span id="operator-marbles-combine-latest"></span><h2>combine_latest<a class="headerlink" href="#combine-latest" title="Permalink to this headline">¶</a></h2>
+<div id="combine_latest-example-.f-xyz-abcd-1_0-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.combine_latest(q, f)",Marbles.operators.combineLatest(Marbles.functions.f), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.xyz, 1.0),
+             Marbles.Observable(true, "q", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("combine_latest-example-.f-xyz-abcd-1_0-1_0", 600, 60);
+</script></div>
+<div class="section" id="concat">
+<span id="operator-marbles-concat"></span><h2>concat<a class="headerlink" href="#concat" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="merge">
+<span id="operator-marbles-merge"></span><h2>merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
+<div id="merge-example-xyz-abcd-1_0-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.merge(q)",Marbles.operators.merge, [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.xyz, 1.0),
+             Marbles.Observable(true, "q", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("merge-example-xyz-abcd-1_0-1_0", 600, 60);
+</script></div>
+<div class="section" id="sample">
+<span id="operator-marbles-sample"></span><h2>sample<a class="headerlink" href="#sample" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="start-with">
+<span id="operator-marbles-start-with"></span><h2>start_with<a class="headerlink" href="#start-with" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="with-latest-from">
+<span id="operator-marbles-with-latest-from"></span><h2>with_latest_from<a class="headerlink" href="#with-latest-from" title="Permalink to this headline">¶</a></h2>
+<div id="with_latest_from-example-.f-xyz-abcd-1_0-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.with_latest_from(q, f)",Marbles.operators.withLatestFrom(Marbles.functions.f), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.xyz, 1.0),
+             Marbles.Observable(true, "q", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("with_latest_from-example-.f-xyz-abcd-1_0-1_0", 600, 60);
+</script></div>
+<div class="section" id="zip">
+<span id="operator-marbles-zip"></span><h2>zip<a class="headerlink" href="#zip" title="Permalink to this headline">¶</a></h2>
+<div id="zip-example-.f-xyz-abcd-1_0-1_0"></div>
+<script>
+  var opExample = Marbles.Operator("p.zip(q, f)",Marbles.operators.zip(Marbles.functions.f), [
+             Marbles.Observable(true, "p", Marbles.examples.marbles.xyz, 1.0),
+             Marbles.Observable(true, "q", Marbles.examples.marbles.abcd, 1.0)
+           ]);
+  opExample.render("zip-example-.f-xyz-abcd-1_0-1_0", 600, 60);
+</script></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="filtering-operators.html" class="btn btn-neutral float-right" title="Filtering Operators" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transforming-operators.html" class="btn btn-neutral" title="Transforming Operators" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Dag Brattli.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.5.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/marbles/svg.min.js"></script>
+      <script type="text/javascript" src="../_static/marbles/svg.draggable.min.js"></script>
+      <script type="text/javascript" src="../_static/marbles/marbles.js"></script>
+      <script type="text/javascript" src="../_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

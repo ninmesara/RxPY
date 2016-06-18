@@ -2,16 +2,16 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_sample_header:
-.. _operator_throttle_first_header:
-.. _operator_throttle_last_header:
+.. _operator-header-sample:
+.. _operator-header-throttle_first:
+.. _operator-header-throttle_last:
 
 
 Sample
@@ -19,36 +19,36 @@ Sample
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Sample <http://reactivex.io/documentation/operators/sample.html>`_
+   - Official ReactiveX documentation:
+     `Sample <http://reactivex.io/documentation/operators/sample.html>`_
 
 
 
-.. _operator_sample:
+.. _operator-sample:
 
 .. automethod:: Observable.sample
 
-    
-    .. image:: /img/reactivex/operators/sample.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/sample.png
+      :align: center
+   
 
 
-.. _operator_throttle_first:
+.. _operator-throttle_first:
 
 .. automethod:: Observable.throttle_first
 
-    
-    .. image:: /img/reactivex/operators/throttleFirst.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/throttleFirst.png
+      :align: center
+   
 
 
-.. _operator_throttle_last:
+.. _operator-throttle_last:
 
 .. automethod:: Observable.throttle_last
 
-    
-    .. image:: /img/reactivex/operators/throttleLast.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/throttleLast.png
+      :align: center
+   

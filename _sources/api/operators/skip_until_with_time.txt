@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_skip_until_with_time_header:
+.. _operator-header-skip_until_with_time:
 
 
 Skip until with time
@@ -17,16 +17,16 @@ Skip until with time
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `SkipUntilWithTime <http://reactivex.io/documentation/operators/skipuntilwithtime.html>`_
+   - Official ReactiveX documentation:
+     `SkipUntilWithTime <http://reactivex.io/documentation/operators/skipuntilwithtime.html>`_
 
 
 
-.. _operator_skip_until_with_time:
+.. _operator-skip_until_with_time:
 
 .. automethod:: Observable.skip_until_with_time
 
-    
-    .. image:: /img/reactivex/operators/skipUntilWithTime.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/skipUntilWithTime.png
+      :align: center
+   

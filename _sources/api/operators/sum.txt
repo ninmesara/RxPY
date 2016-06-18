@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_sum_header:
+.. _operator-header-sum:
 
 
 Sum
@@ -17,16 +17,16 @@ Sum
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Sum <http://reactivex.io/documentation/operators/sum.html>`_
+   - Official ReactiveX documentation:
+     `Sum <http://reactivex.io/documentation/operators/sum.html>`_
 
 
 
-.. _operator_sum:
+.. _operator-sum:
 
 .. automethod:: Observable.sum
 
-    
-    .. image:: /img/reactivex/operators/sum.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/sum.png
+      :align: center
+   

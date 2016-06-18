@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_concat_all_header:
-.. _operator_concat_header:
+.. _operator-header-concat_all:
+.. _operator-header-concat:
 
 
 Concat
@@ -18,26 +18,26 @@ Concat
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Concat <http://reactivex.io/documentation/operators/concat.html>`_
+   - Official ReactiveX documentation:
+     `Concat <http://reactivex.io/documentation/operators/concat.html>`_
 
 
 
-.. _operator_concat_all:
+.. _operator-concat_all:
 
 .. automethod:: Observable.concat_all
 
-    
-    .. image:: /img/reactivex/operators/concat_all.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/concat_all.png
+      :align: center
+   
 
 
-.. _operator_concat:
+.. _operator-concat:
 
 .. automethod:: Observable.concat
 
-    
-    .. image:: /img/reactivex/operators/concat.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/concat.png
+      :align: center
+   

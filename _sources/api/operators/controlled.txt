@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_controlled_header:
+.. _operator-header-controlled:
 
 
 Controlled
@@ -17,13 +17,13 @@ Controlled
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Controlled <http://reactivex.io/documentation/operators/controlled.html>`_
+   - Official ReactiveX documentation:
+     `Controlled <http://reactivex.io/documentation/operators/controlled.html>`_
 
 
 
-.. _operator_controlled:
+.. _operator-controlled:
 
 .. automethod:: Observable.controlled
 
-    
+   

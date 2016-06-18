@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_dematerialize_header:
-.. _operator_materialize_header:
+.. _operator-header-dematerialize:
+.. _operator-header-materialize:
 
 
 Materialize-dematerialize
@@ -18,26 +18,26 @@ Materialize-dematerialize
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `MaterializeDematerialize <http://reactivex.io/documentation/operators/materialize-dematerialize.html>`_
+   - Official ReactiveX documentation:
+     `MaterializeDematerialize <http://reactivex.io/documentation/operators/materialize-dematerialize.html>`_
 
 
 
-.. _operator_dematerialize:
+.. _operator-dematerialize:
 
 .. automethod:: Observable.dematerialize
 
-    
-    .. image:: /img/reactivex/operators/dematerialize.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/dematerialize.png
+      :align: center
+   
 
 
-.. _operator_materialize:
+.. _operator-materialize:
 
 .. automethod:: Observable.materialize
 
-    
-    .. image:: /img/reactivex/operators/materialize.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/materialize.png
+      :align: center
+   

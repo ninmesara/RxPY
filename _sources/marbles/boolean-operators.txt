@@ -1,0 +1,47 @@
+
+.. include:: /api/operators/operator-aliases.rst
+
+Boolean Operators
+=================
+
+
+
+.. _operator-marbles-every:
+
+every
+-----
+
+
+.. include:: /assets/marbles/every-example-.odd-_12345-1_0.rst
+
+.. include:: /assets/marbles/every-example--_12345-1_0.rst
+
+
+
+.. _operator-marbles-includes:
+
+includes
+--------
+
+
+
+
+.. _operator-marbles-sequence_equal:
+
+sequence_equal
+--------------
+
+
+
+
+.. _operator-marbles-some:
+
+some
+----
+
+
+.. include:: /assets/marbles/some-example-.odd-_12345-1_0.rst
+
+.. include:: /assets/marbles/some-example--_12345-1_0.rst
+
+

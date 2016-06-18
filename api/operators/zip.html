@@ -35,11 +35,7 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Core" href="../core.html"/>
-        <link rel="prev" title="Window" href="window.html"/>
-<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
-
+        <link rel="prev" title="Window" href="window.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -127,6 +123,8 @@
 <li class="toctree-l4"><a class="reference internal" href="flat_map.html">Flat map</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flat_map_latest.html">Flat map latest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="from.html">From</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_marbles.html">From marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_string.html">From string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="group_by.html">Group by</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ignore_elements.html">Ignore elements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="interval.html">Interval</a></li>
@@ -179,6 +177,8 @@
 <li class="toctree-l4"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="timestamp.html">Timestamp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="to.html">To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_marbles.html">To marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_string.html">To string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="transduce.html">Transduce</a></li>
 <li class="toctree-l4"><a class="reference internal" href="using.html">Using</a></li>
 <li class="toctree-l4"><a class="reference internal" href="while_do.html">While do</a></li>
@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../marbles/index.html">Interactive Marble Diagrams</a></li>
 </ul>
 
             
@@ -242,24 +243,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id1">
-<img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
-<p class="caption"><span class="caption-text">Under construction...</span></p>
+  <div class="section" id="zip">
+<span id="operator-header-zip-list"></span><span id="operator-header-zip-array"></span><span id="operator-header-zip"></span><h1>Zip<a class="headerlink" href="#zip" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<ul class="last simple">
+<li>Official ReactiveX documentation:
+<a class="reference external" href="http://reactivex.io/documentation/operators/zip.html">Zip</a></li>
+</ul>
 </div>
-<div class="section" id="zip">
-<h1>Zip<a class="headerlink" href="#zip" title="Permalink to this headline">¶</a></h1>
-<div id="zip-generic-f-example"></div>
-<script>
-  var M = Marbles
-  var E = M.examples.marbles
-  var f = M.functions.f
-
-  var A = M.Observable(true, "p", E.abcd, 1.0);
-  var X = M.Observable(true, "q", E.xyz, 1.0);
-  var opMerge = M.Operator("p.combine_latest(q, f)",
-                   M.operators.zip(f), [A, X]);
-  opMerge.render("with_latest_from-example", 600, 60);
-</script><span class="target" id="operator-zip"></span><dl class="classmethod">
+<span class="target" id="operator-zip"></span><dl class="classmethod">
 <dt id="rx.Observable.zip">
 <em class="property">classmethod </em><code class="descclassname">Observable.</code><code class="descname">zip</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.zip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Merges the specified observable sequences into one observable
@@ -282,6 +275,20 @@ function.</td>
 </tbody>
 </table>
 <img alt="../../_images/zip.png" class="align-center" src="../../_images/zip.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">rx.testing</span> <span class="k">import</span> <span class="n">marbles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xs</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_marbles</span><span class="p">(</span><span class="s1">&#39;--1-2-3-|&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ys</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">from_marbles</span><span class="p">(</span><span class="s1">&#39;-a-b-c-d-e|&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">xs</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">ys</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">))</span>
+<span class="go">Next: 1a</span>
+<span class="go">Next: 2b</span>
+<span class="go">Next: 3c</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="operator-zip-array"></span><dl class="classmethod">
@@ -380,6 +387,10 @@ elements at corresponding indexes.</td>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+      <script type="text/javascript" src="../../_static/copybutton.js"></script>
 
   
 

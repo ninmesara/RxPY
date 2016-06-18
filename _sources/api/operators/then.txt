@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_then_header:
+.. _operator-header-then:
 
 
 Then
@@ -17,13 +17,13 @@ Then
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Then <http://reactivex.io/documentation/operators/then.html>`_
+   - Official ReactiveX documentation:
+     `Then <http://reactivex.io/documentation/operators/then.html>`_
 
 
 
-.. _operator_then:
+.. _operator-then:
 
 .. automethod:: Observable.then
 
-    
+   

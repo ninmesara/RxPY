@@ -1,0 +1,12 @@
+
+.. raw:: html
+
+   <div id="with_latest_from-example-f-xyz-abcd-1_0-1_0"></div>
+   <script>
+     var opExample = Marble.Operator("p.with_latest_from.(q, f)",
+            Marble.operators.with_latest_from(f), [
+                Marbles.Observable(true, "p", Marble.examples.marbles.xyz, 1.0),
+                Marbles.Observable(true, "q", Marble.examples.marbles.abcd, 1.0)
+              ]);
+     opExample.render("with_latest_from-example-f-xyz-abcd-1_0-1_0");
+   </script>

@@ -2,17 +2,17 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_case_header:
-.. _operator_defer_header:
-.. _operator_if_then_header:
-.. _operator_switch_case_header:
+.. _operator-header-case:
+.. _operator-header-defer:
+.. _operator-header-if_then:
+.. _operator-header-switch_case:
 
 
 Case
@@ -20,46 +20,46 @@ Case
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Case <http://reactivex.io/documentation/operators/case.html>`_
+   - Official ReactiveX documentation:
+     `Case <http://reactivex.io/documentation/operators/case.html>`_
 
 
 
-.. _operator_case:
+.. _operator-case:
 
 .. automethod:: Observable.case
 
-    
-    .. image:: /img/reactivex/operators/case.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/case.png
+      :align: center
+   
 
 
-.. _operator_defer:
+.. _operator-defer:
 
 .. automethod:: Observable.defer
 
-    
-    .. image:: /img/reactivex/operators/defer.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/defer.png
+      :align: center
+   
 
 
-.. _operator_if_then:
+.. _operator-if_then:
 
 .. automethod:: Observable.if_then
 
-    
-    .. image:: /img/reactivex/operators/ifThen.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/ifThen.png
+      :align: center
+   
 
 
-.. _operator_switch_case:
+.. _operator-switch_case:
 
 .. automethod:: Observable.switch_case
 
-    
-    .. image:: /img/reactivex/operators/switchCase.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/switchCase.png
+      :align: center
+   

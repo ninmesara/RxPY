@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_create_with_disposable_header:
+.. _operator-header-create_with_disposable:
 
 
 Create with disposable
@@ -17,13 +17,13 @@ Create with disposable
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `CreateWithDisposable <http://reactivex.io/documentation/operators/createwithdisposable.html>`_
+   - Official ReactiveX documentation:
+     `CreateWithDisposable <http://reactivex.io/documentation/operators/createwithdisposable.html>`_
 
 
 
-.. _operator_create_with_disposable:
+.. _operator-create_with_disposable:
 
 .. automethod:: Observable.create_with_disposable
 
-    
+   

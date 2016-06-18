@@ -1,16 +1,14 @@
-.. !!!AUTO!!! (remove this comment to edit)
-
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_all_header:
-.. _operator_every_header:
+.. _operator-header-all:
+.. _operator-header-every:
 
 
 All
@@ -18,26 +16,43 @@ All
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `All <http://reactivex.io/documentation/operators/all.html>`_
+   - Official ReactiveX documentation:
+     `All <http://reactivex.io/documentation/operators/all.html>`_
 
 
 
-.. _operator_all:
+.. _operator-all:
 
 .. automethod:: Observable.all
 
-    
-    .. image:: /img/reactivex/operators/all.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/all.png
+      :align: center
+   
+   >>> import rx
+   >>> source = rx.Observable.of(1,2,3,4,5).all(lambda x: x < 6)
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: True
+   Complete!
+   
 
+.. _operator-every:
 
-.. _operator_every:
+.. method:: Observable.every
 
-.. automethod:: Observable.every
-
-    
-    .. image:: /img/reactivex/operators/every.png
-        :align: center
-    
+   Alias for :func:`Observable.all`.
+   
+   .. image:: /img/reactivex/operators/every.png
+      :align: center
+   
+   >>> import rx
+   >>> source = rx.Observable.of(1,2,3,4,5).every(lambda x: x < 6)
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: True
+   Complete! 

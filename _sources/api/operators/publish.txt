@@ -2,18 +2,18 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_let_header:
-.. _operator_let_bind_header:
-.. _operator_multicast_header:
-.. _operator_publish_header:
-.. _operator_publish_value_header:
+.. _operator-header-let:
+.. _operator-header-let_bind:
+.. _operator-header-multicast:
+.. _operator-header-publish:
+.. _operator-header-publish_value:
 
 
 Publish
@@ -21,44 +21,44 @@ Publish
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Publish <http://reactivex.io/documentation/operators/publish.html>`_
+   - Official ReactiveX documentation:
+     `Publish <http://reactivex.io/documentation/operators/publish.html>`_
 
 
 
-.. _operator_let:
+.. _operator-let:
 
 .. automethod:: Observable.let
 
-    
+   
 
 
-.. _operator_let_bind:
+.. _operator-let_bind:
 
 .. automethod:: Observable.let_bind
 
-    
+   
 
 
-.. _operator_multicast:
+.. _operator-multicast:
 
 .. automethod:: Observable.multicast
 
-    
+   
 
 
-.. _operator_publish:
+.. _operator-publish:
 
 .. automethod:: Observable.publish
 
-    
+   
 
 
-.. _operator_publish_value:
+.. _operator-publish_value:
 
 .. automethod:: Observable.publish_value
 
-    
-    .. image:: /img/reactivex/operators/publishValue.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/publishValue.png
+      :align: center
+   

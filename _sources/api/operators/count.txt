@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_count_header:
+.. _operator-header-count:
 
 
 Count
@@ -17,13 +17,13 @@ Count
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Count <http://reactivex.io/documentation/operators/count.html>`_
+   - Official ReactiveX documentation:
+     `Count <http://reactivex.io/documentation/operators/count.html>`_
 
 
 
-.. _operator_count:
+.. _operator-count:
 
 .. automethod:: Observable.count
 
-    
+   

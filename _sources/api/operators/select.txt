@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_select_header:
+.. _operator-header-select:
 
 
 Select
@@ -17,13 +17,13 @@ Select
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Select <http://reactivex.io/documentation/operators/select.html>`_
+   - Official ReactiveX documentation:
+     `Select <http://reactivex.io/documentation/operators/select.html>`_
 
 
 
-.. _operator_select:
+.. _operator-select:
 
 .. automethod:: Observable.select
 
-    
+   

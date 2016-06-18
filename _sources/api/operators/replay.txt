@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_replay_header:
+.. _operator-header-replay:
 
 
 Replay
@@ -17,16 +17,16 @@ Replay
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Replay <http://reactivex.io/documentation/operators/replay.html>`_
+   - Official ReactiveX documentation:
+     `Replay <http://reactivex.io/documentation/operators/replay.html>`_
 
 
 
-.. _operator_replay:
+.. _operator-replay:
 
 .. automethod:: Observable.replay
 
-    
-    .. image:: /img/reactivex/operators/replay.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/replay.png
+      :align: center
+   

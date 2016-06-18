@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_join_header:
-.. _operator_group_join_header:
+.. _operator-header-join:
+.. _operator-header-group_join:
 
 
 Join
@@ -18,23 +18,23 @@ Join
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Join <http://reactivex.io/documentation/operators/join.html>`_
+   - Official ReactiveX documentation:
+     `Join <http://reactivex.io/documentation/operators/join.html>`_
 
 
 
-.. _operator_join:
+.. _operator-join:
 
 .. automethod:: Observable.join
 
-    
+   
 
 
-.. _operator_group_join:
+.. _operator-group_join:
 
 .. automethod:: Observable.group_join
 
-    
-    .. image:: /img/reactivex/operators/groupJoin.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/groupJoin.png
+      :align: center
+   

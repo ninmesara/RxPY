@@ -1,47 +1,51 @@
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. !!!AUTO!!! (remove this comment to edit)
+
+.. include:: operator-aliases.rst
+
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_merge:
-.. _operator_merge_all:
-.. _operator_merge_observable:
+.. _operator-header-merge:
+.. _operator-header-merge_all:
+.. _operator-header-merge_observable:
 
 
 Merge
 =====
 
-.. raw:: html
+.. seealso::
 
-   <div id="merge-example"></div>
-   <script>
-   var M = Marbles
-   var E = M.examples.marbles
-   var f = M.functions.f
+   - Official ReactiveX documentation:
+     `Merge <http://reactivex.io/documentation/operators/merge.html>`_
 
-   var A = M.Observable(true, "p", E.abcd, 1.0);
-   var X = M.Observable(true, "q", E.xyz, 1.0);
-   var opMerge = M.Operator("p.merge(q)", M.operators.merge, [A, X]);
-   opMerge.render("merge-example", 600, 60);
-   </script>
 
+
+.. _operator-merge:
 
 .. automethod:: Observable.merge
 
-    
-    .. image:: /img/reactivex/operators/merge.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/merge.png
+      :align: center
+   
+
+
+.. _operator-merge_all:
 
 .. automethod:: Observable.merge_all
 
-    
-    .. image:: /img/reactivex/operators/merge_all.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/merge_all.png
+      :align: center
+   
+
+
+.. _operator-merge_observable:
 
 .. automethod:: Observable.merge_observable
 
-    
+   

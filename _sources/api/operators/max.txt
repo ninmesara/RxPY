@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_max_header:
-.. _operator_max_by_header:
+.. _operator-header-max:
+.. _operator-header-max_by:
 
 
 Max
@@ -18,26 +18,26 @@ Max
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Max <http://reactivex.io/documentation/operators/max.html>`_
+   - Official ReactiveX documentation:
+     `Max <http://reactivex.io/documentation/operators/max.html>`_
 
 
 
-.. _operator_max:
+.. _operator-max:
 
 .. automethod:: Observable.max
 
-    
-    .. image:: /img/reactivex/operators/max.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/max.png
+      :align: center
+   
 
 
-.. _operator_max_by:
+.. _operator-max_by:
 
 .. automethod:: Observable.max_by
 
-    
-    .. image:: /img/reactivex/operators/maxBy.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/maxBy.png
+      :align: center
+   

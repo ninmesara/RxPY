@@ -2,19 +2,19 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_from__header:
-.. _operator_from_callback_header:
-.. _operator_from_future_header:
-.. _operator_from_iterable_header:
-.. _operator_from_list_header:
-.. _operator_of_header:
+.. _operator-header-from_:
+.. _operator-header-from_callback:
+.. _operator-header-from_future:
+.. _operator-header-from_iterable:
+.. _operator-header-from_list:
+.. _operator-header-of:
 
 
 From
@@ -22,57 +22,57 @@ From
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `From <http://reactivex.io/documentation/operators/from.html>`_
+   - Official ReactiveX documentation:
+     `From <http://reactivex.io/documentation/operators/from.html>`_
 
 
 
-.. _operator_from_:
+.. _operator-from_:
 
 .. automethod:: Observable.from_
 
-    
+   
 
 
-.. _operator_from_callback:
+.. _operator-from_callback:
 
 .. automethod:: Observable.from_callback
 
-    
-    .. image:: /img/reactivex/operators/fromCallback.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/fromCallback.png
+      :align: center
+   
 
 
-.. _operator_from_future:
+.. _operator-from_future:
 
 .. automethod:: Observable.from_future
 
-    
-    .. image:: /img/reactivex/operators/fromFuture.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/fromFuture.png
+      :align: center
+   
 
 
-.. _operator_from_iterable:
+.. _operator-from_iterable:
 
 .. automethod:: Observable.from_iterable
 
-    
+   
 
 
-.. _operator_from_list:
+.. _operator-from_list:
 
 .. automethod:: Observable.from_list
 
-    
+   
 
 
-.. _operator_of:
+.. _operator-of:
 
 .. automethod:: Observable.of
 
-    
-    .. image:: /img/reactivex/operators/of.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/of.png
+      :align: center
+   

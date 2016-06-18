@@ -1,0 +1,29 @@
+.. !!!AUTO!!! (remove this comment to edit)
+
+.. include:: operator-aliases.rst
+
+.. testsetup:: *
+
+   import rx
+
+
+.. currentmodule:: rx
+
+.. _operator-header-from_string:
+
+
+From string
+===========
+
+.. seealso::
+
+   - Official ReactiveX documentation:
+     `FromString <http://reactivex.io/documentation/operators/fromstring.html>`_
+
+
+
+.. _operator-from_string:
+
+.. automethod:: Observable.from_string
+
+   

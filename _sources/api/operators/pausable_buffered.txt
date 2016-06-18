@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_pausable_buffered_header:
+.. _operator-header-pausable_buffered:
 
 
 Pausable buffered
@@ -17,13 +17,13 @@ Pausable buffered
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `PausableBuffered <http://reactivex.io/documentation/operators/pausablebuffered.html>`_
+   - Official ReactiveX documentation:
+     `PausableBuffered <http://reactivex.io/documentation/operators/pausablebuffered.html>`_
 
 
 
-.. _operator_pausable_buffered:
+.. _operator-pausable_buffered:
 
 .. automethod:: Observable.pausable_buffered
 
-    
+   

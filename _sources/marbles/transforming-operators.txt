@@ -1,0 +1,65 @@
+
+.. include:: /api/operators/operator-aliases.rst
+
+Transforming Operators
+======================
+
+
+
+.. _operator-marbles-debounce:
+
+debounce
+--------
+
+
+
+
+.. _operator-marbles-debounce_with_selector:
+
+debounce_with_selector
+----------------------
+
+
+
+
+.. _operator-marbles-delay:
+
+delay
+-----
+
+
+
+
+.. _operator-marbles-delay_with_selector:
+
+delay_with_selector
+-------------------
+
+
+
+
+.. _operator-marbles-findIndex:
+
+findIndex
+---------
+
+
+
+
+.. _operator-marbles-map:
+
+map
+---
+
+
+.. include:: /assets/marbles/map-example-.f-abcd-1_0.rst
+
+
+
+.. _operator-marbles-scan:
+
+scan
+----
+
+
+

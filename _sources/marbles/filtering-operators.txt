@@ -1,0 +1,139 @@
+
+.. include:: /api/operators/operator-aliases.rst
+
+Filtering Operators
+===================
+
+
+
+.. _operator-marbles-distinct:
+
+distinct
+--------
+
+
+
+
+.. _operator-marbles-distinct_until_changed:
+
+distinct_until_changed
+----------------------
+
+
+
+
+.. _operator-marbles-element_at:
+
+element_at
+----------
+
+
+
+
+.. _operator-marbles-filter:
+
+filter
+------
+
+
+.. include:: /assets/marbles/filter-example-.odd-_12345-1_0.rst
+
+
+
+.. _operator-marbles-find:
+
+find
+----
+
+
+
+
+.. _operator-marbles-first:
+
+first
+-----
+
+
+.. include:: /assets/marbles/first-example-abcd-1_0.rst
+
+
+
+.. _operator-marbles-last:
+
+last
+----
+
+
+.. include:: /assets/marbles/last-example-abcd-1_0.rst
+
+
+
+.. _operator-marbles-pausable:
+
+pausable
+--------
+
+
+
+
+.. _operator-marbles-pausable_buffered:
+
+pausable_buffered
+-----------------
+
+
+
+
+.. _operator-marbles-skip:
+
+skip
+----
+
+
+.. include:: /assets/marbles/skip-example-2-abcd-1_0.rst
+
+
+
+.. _operator-marbles-skip_last:
+
+skip_last
+---------
+
+
+
+
+.. _operator-marbles-skip_until:
+
+skip_until
+----------
+
+
+
+
+.. _operator-marbles-take:
+
+take
+----
+
+
+.. include:: /assets/marbles/take-example-3-abcd-1_0.rst
+
+
+
+.. _operator-marbles-take_last:
+
+take_last
+---------
+
+
+.. include:: /assets/marbles/take_last-example-2-abcd-1_0.rst
+
+
+
+.. _operator-marbles-take_until:
+
+take_until
+----------
+
+
+

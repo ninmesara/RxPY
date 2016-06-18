@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_subscribe_on_header:
+.. _operator-header-subscribe_on:
 
 
 Subscribe on
@@ -17,16 +17,16 @@ Subscribe on
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `SubscribeOn <http://reactivex.io/documentation/operators/subscribeon.html>`_
+   - Official ReactiveX documentation:
+     `SubscribeOn <http://reactivex.io/documentation/operators/subscribeon.html>`_
 
 
 
-.. _operator_subscribe_on:
+.. _operator-subscribe_on:
 
 .. automethod:: Observable.subscribe_on
 
-    
-    .. image:: /img/reactivex/operators/subscribeOn.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/subscribeOn.png
+      :align: center
+   

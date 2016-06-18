@@ -1,19 +1,17 @@
-.. !!!AUTO!!! (remove this comment to edit)
-
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_buffer_header:
-.. _operator_buffer_with_count_header:
-.. _operator_buffer_with_time_header:
-.. _operator_buffer_with_time_or_count_header:
-.. _operator_pairwise_header:
+.. _operator-header-buffer:
+.. _operator-header-buffer_with_count:
+.. _operator-header-buffer_with_time:
+.. _operator-header-buffer_with_time_or_count:
+.. _operator-header-pairwise:
 
 
 Buffer
@@ -21,116 +19,163 @@ Buffer
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Buffer <http://reactivex.io/documentation/operators/buffer.html>`_
+   - Official ReactiveX documentation:
+     `Buffer <http://reactivex.io/documentation/operators/buffer.html>`_
 
 
 
-.. _operator_buffer:
+.. _operator-buffer:
 
 .. automethod:: Observable.buffer
 
-    
-    .. image:: /img/reactivex/operators/buffer1.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer1.py.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer2.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer2.py.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer3.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer4.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer5.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer5.s.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer6.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer6.s.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer7.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer7.s.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer8.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer8.py.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/buffer1.py.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer2.py.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer3.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer4.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer5.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer5.s.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer6.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer6.s.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer7.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer7.s.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer8.py.png
+      :align: center
+   
 
 
-.. _operator_buffer_with_count:
+.. _operator-buffer_with_count:
 
 .. automethod:: Observable.buffer_with_count
 
-    
-    .. image:: /img/reactivex/operators/bufferWithCount3.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/bufferWithCount4.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer_with_count3.py.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer_with_count4.py.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer_with_count4.rb.png
-        :align: center
-    
+   .. image:: /img/reactivex/operators/buffer_with_count3.py.png
+      :align: center
+   
+   >>> import rx
+   >>> items = ['red', 'yellow', 'green', 'cyan', 'blue', 'purple']
+   >>> source = rx.Observable.from_(items).buffer_with_count(3);
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: ['red', 'yellow', 'green']
+   Next: ['cyan', 'blue', 'purple']
+   Complete!
 
+   
+   .. image:: /img/reactivex/operators/buffer_with_count4.py.png
+      :align: center
 
-.. _operator_buffer_with_time:
+   >>> import rx
+   >>> items = ['red', 'yellow', 'green', 'cyan', 'blue', 'purple']
+   >>> source = rx.Observable.from_(items).buffer_with_count(2, skip=3);
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: ['red', 'yellow']
+   Next: ['cyan', 'blue']
+   Complete!
+   
+
+.. _operator-buffer_with_time:
 
 .. automethod:: Observable.buffer_with_time
 
-    
-    .. image:: /img/reactivex/operators/bufferWithTime5.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/bufferWithTime7.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer_with_time5.py.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer_with_time7.py.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/bufferWithTime5.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/bufferWithTime7.png
+      :align: center
+   
+   .. image:: /img/reactivex/operators/buffer_with_time5.py.png
+      :align: center
+
+   >>> import rx
+   >>> ryg = ['red', 'yellow', 'green']
+   >>> cbp = ['cyan', 'blue', 'purple']
+   >>> xs = rx.Observable.timer(10, 50).take(3).map(lambda i: ryg[i])
+   >>> ys = rx.Observable.timer(60, 50).take(3).map(lambda i: cbp[i])        
+   >>> source = xs.concat(ys).buffer_with_time(timespan=100)
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: ['red', 'yellow']
+   Next: ['green', 'cyan']
+   Next: ['blue', 'purple']
+   Complete!
+   
+   .. image:: /img/reactivex/operators/buffer_with_time7.py.png
+      :align: center
+  
+   >>> import rx
+   >>> rygc = ['red', 'yellow', 'green', 'cyan']
+   >>> bp = ['blue', 'purple']
+   >>> xs = rx.Observable.timer(30, 50).take(4).map(lambda i: rygc[i])
+   >>> ys = rx.Observable.timer(80, 50).take(2).map(lambda i: bp[i])        
+   >>> source = xs.concat(ys).buffer_with_time(timeshift=110, timespan=60)
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: ['red']
+   Next: ['green', 'cyan']
+   Next: ['blue']
+   Complete!
 
 
-.. _operator_buffer_with_time_or_count:
+.. _operator-buffer_with_time_or_count:
 
 .. automethod:: Observable.buffer_with_time_or_count
 
-    
-    .. image:: /img/reactivex/operators/bufferWithTimeOrCount6.png
-        :align: center
-    
-    .. image:: /img/reactivex/operators/buffer_with_time_or_count6.py.png
-        :align: center
-    
+   .. image:: /img/reactivex/operators/buffer_with_time_or_count6.py.png
+      :align: center
+   
+   >>> import rx
+   >>> from rx.core import Scheduler
+   >>> ryg = ['red', 'yellow', 'green']
+   >>> cbp = ['cyan', 'blue', 'purple']
+   >>> xs = rx.Observable.timer(10, 20).take(3).map(lambda i: ryg[i])
+   >>> ys = rx.Observable.timer(40, 30).take(3).map(lambda i: cbp[i])        
+   >>> source = xs.concat(ys) \
+   ...     .buffer_with_time_or_count(timespan=40,
+   ...                                count=2,
+   ...                                scheduler=Scheduler.timeout)
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: ['red', 'yellow']
+   Next: ['green']
+   Next: ['cyan', 'blue']
+   Next: ['purple']
+   Complete!
+   
 
-
-.. _operator_pairwise:
+.. _operator-pairwise:
 
 .. automethod:: Observable.pairwise
 
-    
+   

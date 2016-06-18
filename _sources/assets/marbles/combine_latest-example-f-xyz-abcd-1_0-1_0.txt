@@ -1,0 +1,12 @@
+
+.. raw:: html
+
+   <div id="combine_latest-example-f-xyz-abcd-1_0-1_0"></div>
+   <script>
+     var opExample = Marble.Operator("p.combine_latest.(q, f)",
+            Marble.operators.combine_latest(f), [
+                Marbles.Observable(true, "p", Marble.examples.marbles.xyz, 1.0),
+                Marbles.Observable(true, "q", Marble.examples.marbles.abcd, 1.0)
+              ]);
+     opExample.render("combine_latest-example-f-xyz-abcd-1_0-1_0");
+   </script>

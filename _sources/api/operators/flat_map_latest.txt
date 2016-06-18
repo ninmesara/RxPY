@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_flat_map_latest_header:
+.. _operator-header-flat_map_latest:
 
 
 Flat map latest
@@ -17,16 +17,16 @@ Flat map latest
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `FlatMapLatest <http://reactivex.io/documentation/operators/flatmaplatest.html>`_
+   - Official ReactiveX documentation:
+     `FlatMapLatest <http://reactivex.io/documentation/operators/flatmaplatest.html>`_
 
 
 
-.. _operator_flat_map_latest:
+.. _operator-flat_map_latest:
 
 .. automethod:: Observable.flat_map_latest
 
-    
-    .. image:: /img/reactivex/operators/flatMapLatest.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/flatMapLatest.png
+      :align: center
+   

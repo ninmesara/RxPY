@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_while_do_header:
+.. _operator-header-while_do:
 
 
 While do
@@ -17,16 +17,16 @@ While do
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `WhileDo <http://reactivex.io/documentation/operators/whiledo.html>`_
+   - Official ReactiveX documentation:
+     `WhileDo <http://reactivex.io/documentation/operators/whiledo.html>`_
 
 
 
-.. _operator_while_do:
+.. _operator-while_do:
 
 .. automethod:: Observable.while_do
 
-    
-    .. image:: /img/reactivex/operators/whileDo.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/whileDo.png
+      :align: center
+   

@@ -327,6 +327,8 @@ An Alphabetical List of Observable Operators
 * |from_future|
 * |from_iterable|
 * |from_list|
+* |from_marbles|
+* |from_string|
 * |generate|
 * |generate_with_relative_time|
 * |group_by|
@@ -426,7 +428,9 @@ An Alphabetical List of Observable Operators
 * |to_future|
 * |to_iterable|
 * |to_list|
+* |to_marbles|
 * |to_set|
+* |to_string|
 * |transduce|
 * |using|
 * |when|
@@ -473,6 +477,8 @@ An Alphabetical List of Observable Operators
    flat_map
    flat_map_latest
    from
+   from_marbles
+   from_string
    group_by
    ignore_elements
    interval
@@ -525,6 +531,8 @@ An Alphabetical List of Observable Operators
    timer
    timestamp
    to
+   to_marbles
+   to_string
    transduce
    using
    while_do

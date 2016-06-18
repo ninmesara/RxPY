@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_take_until_header:
+.. _operator-header-take_until:
 
 
 Take until
@@ -17,16 +17,16 @@ Take until
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `TakeUntil <http://reactivex.io/documentation/operators/takeuntil.html>`_
+   - Official ReactiveX documentation:
+     `TakeUntil <http://reactivex.io/documentation/operators/takeuntil.html>`_
 
 
 
-.. _operator_take_until:
+.. _operator-take_until:
 
 .. automethod:: Observable.take_until
 
-    
-    .. image:: /img/reactivex/operators/takeUntil.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/takeUntil.png
+      :align: center
+   

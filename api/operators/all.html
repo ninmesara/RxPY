@@ -35,11 +35,7 @@
     <link rel="top" title="RxPY 1.5.2 documentation" href="../../index.html"/>
         <link rel="up" title="Operators" href="index.html"/>
         <link rel="next" title="Amb" href="amb.html"/>
-        <link rel="prev" title="Operators" href="index.html"/>
-<script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
-<script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
-
+        <link rel="prev" title="Operators" href="index.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -127,6 +123,8 @@
 <li class="toctree-l4"><a class="reference internal" href="flat_map.html">Flat map</a></li>
 <li class="toctree-l4"><a class="reference internal" href="flat_map_latest.html">Flat map latest</a></li>
 <li class="toctree-l4"><a class="reference internal" href="from.html">From</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_marbles.html">From marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="from_string.html">From string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="group_by.html">Group by</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ignore_elements.html">Ignore elements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="interval.html">Interval</a></li>
@@ -179,6 +177,8 @@
 <li class="toctree-l4"><a class="reference internal" href="timer.html">Timer</a></li>
 <li class="toctree-l4"><a class="reference internal" href="timestamp.html">Timestamp</a></li>
 <li class="toctree-l4"><a class="reference internal" href="to.html">To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_marbles.html">To marbles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="to_string.html">To string</a></li>
 <li class="toctree-l4"><a class="reference internal" href="transduce.html">Transduce</a></li>
 <li class="toctree-l4"><a class="reference internal" href="using.html">Using</a></li>
 <li class="toctree-l4"><a class="reference internal" href="while_do.html">While do</a></li>
@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../scheduler.html">Scheduler</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../marbles/index.html">Interactive Marble Diagrams</a></li>
 </ul>
 
             
@@ -242,12 +243,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="figure align-center" id="id2">
-<img alt="../../_images/under-construction-icon.png" src="../../_images/under-construction-icon.png" />
-<p class="caption"><span class="caption-text">Under construction...</span></p>
-</div>
-<div class="section" id="all">
-<span id="operator-every-header"></span><span id="operator-all-header"></span><h1>All<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="all">
+<span id="operator-header-every"></span><span id="operator-header-all"></span><h1>All<a class="headerlink" href="#all" title="Permalink to this headline">¶</a></h1>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <ul class="last simple">
@@ -279,32 +276,33 @@ specified predicate.</td>
 </tbody>
 </table>
 <img alt="../../_images/all.png" class="align-center" src="../../_images/all.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: True</span>
+<span class="go">Complete!</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <span class="target" id="operator-every"></span><dl class="method">
 <dt id="rx.Observable.every">
-<code class="descclassname">Observable.</code><code class="descname">every</code><span class="sig-paren">(</span><em>predicate</em><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.every" title="Permalink to this definition">¶</a></dt>
-<dd><p>Determines whether all elements of an observable sequence satisfy a condition.</p>
-<p>Example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="n">value</span><span class="o">.</span><span class="n">length</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span>
+<code class="descclassname">Observable.</code><code class="descname">every</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rx.Observable.every" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#rx.Observable.all" title="rx.Observable.all"><code class="xref py py-func docutils literal"><span class="pre">Observable.all()</span></code></a>.</p>
+<img alt="../../_images/every.png" class="align-center" src="../../_images/every.png" />
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">rx</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">source</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">Observable</span><span class="o">.</span><span class="n">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">every</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subscription</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Next:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span> <span class="n">error</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error:&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Complete!&quot;</span><span class="p">)</span>
+<span class="go">Next: True</span>
+<span class="go">Complete!</span>
 </pre></div>
 </div>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Keyword Arguments:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><strong>predicate</strong> (<em>bool</em>) &#8211; A function to test each element for a condition.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An observable sequence containing a single element determining
-whether all elements in the source sequence pass the test in the
-specified predicate.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Observable</td>
-</tr>
-</tbody>
-</table>
-<img alt="../../_images/every.png" class="align-center" src="../../_images/every.png" />
 </dd></dl>
 
 </div>
@@ -360,6 +358,10 @@ specified predicate.</td>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
       <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/svg.draggable.min.js"></script>
+      <script type="text/javascript" src="../../_static/marbles/marbles.js"></script>
+      <script type="text/javascript" src="../../_static/copybutton.js"></script>
 
   
 

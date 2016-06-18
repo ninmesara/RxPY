@@ -1,0 +1,29 @@
+.. !!!AUTO!!! (remove this comment to edit)
+
+.. include:: operator-aliases.rst
+
+.. testsetup:: *
+
+   import rx
+
+
+.. currentmodule:: rx
+
+.. _operator-header-to_string:
+
+
+To string
+=========
+
+.. seealso::
+
+   - Official ReactiveX documentation:
+     `ToString <http://reactivex.io/documentation/operators/tostring.html>`_
+
+
+
+.. _operator-to_string:
+
+.. automethod:: Observable.to_string
+
+   

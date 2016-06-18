@@ -1,36 +1,63 @@
+
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: default
+
+   import rx
+
 
 .. currentmodule:: rx
+
+.. _operator-header-zip:
+.. _operator-header-zip_array:
+.. _operator-header-zip_list:
 
 
 Zip
 ===
 
-.. include:: /marbles/zip-generic-f-example.rst
+.. seealso::
 
-.. seealso:
+    - Official ReactiveX documentation:
+      `Zip <http://reactivex.io/documentation/operators/zip.html>`_
 
-   TODO
 
-.. _operator_zip:
+.. _operator-zip:
+
 .. automethod:: Observable.zip
-    
-    .. image:: /img/reactivex/operators/zip.png
-        :align: center
 
-.. _operator_zip_array:
+    
+   .. image:: /img/reactivex/operators/zip.png
+      :align: center
+    
+   .. doctest::
+
+      >>> from rx.testing import marbles
+      >>> xs = rx.Observable.from_marbles('--1-2-3-|')
+      >>> ys = rx.Observable.from_marbles('-a-b-c-d-e|')
+      >>> source = xs.zip(ys, lambda x, y: x+y)
+      >>> subscription = source.subscribe(
+      ...     lambda value: print("Next:", value),
+      ...     lambda error: print("Error:", error),
+      ...     lambda: print("Complete!"))
+      Next: 1a
+      Next: 2b
+      Next: 3c
+      Complete!
+
+
+.. _operator-zip_array:
+
 .. automethod:: Observable.zip_array
 
     
-    .. image:: /img/reactivex/operators/zipArray.png
-        :align: center
+   .. image:: /img/reactivex/operators/zipArray.png
+      :align: center
+    
 
-.. _operator_zip_list:
+
+.. _operator-zip_list:
+
 .. automethod:: Observable.zip_list
 
     

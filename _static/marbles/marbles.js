@@ -262,15 +262,15 @@ Marbles.operators.zip = function(func) {
     var m, n, minLength;
     var sorted = Marbles.utils.sortedMarbles(observables);
     m = sorted.length;
+    minLength = sorted[0].length;
     for (var i=1; i < m; i++) {
-      minLength = Math.min(minLength || 99999,
-                           sorted[i].length);
+      minLength = Math.min(minLength, sorted[i].length);
     }
     for (var j=0; j < minLength; j++) {
       var args = [];
       var tMax = 0;
       for (var i=0; i < m; i++) {
-        var marble = sorted[i][j]
+        var marble = sorted[i][j];
         tMax = Math.max(tMax, marble.t);
         args.push(marble.value);
       }
@@ -386,21 +386,26 @@ Marbles.operators.filter = function(func) {
   return helper;
 }
 
-Marbles.operators.average = function(observables) {
-  var args = [];
-  var n = observables[0].marbles.length;
-  for (var j=0; j < n; j++) {
-    args.push(observables[0].marbles[j].value);
-  }
-  var marb = {
-    t: observables[0].complete,
-    value: Marbles.functions.average(args),
-  };
-  return {
-    marbles: [marb],
-    complete: observables[0].complete
+
+Marbles.utils.afterCompletion = function(func) {
+  return function(observables) {
+    var args = [];
+    var n = observables[0].marbles.length;
+    for (var j=0; j < n; j++) {
+      args.push(observables[0].marbles[j].value);
+    }
+    var marb = {
+      t: observables[0].complete,
+      value: func(args),
+    };
+    return {
+      marbles: [marb],
+      complete: observables[0].complete
+    };
   };
 }
+
+
 
 Marbles.utils.clone = function(obj) {
     if(obj == null || typeof(obj) != 'object')
@@ -488,6 +493,131 @@ Marbles.functions.f = Marbles.functions.generic('f', ',')
 Marbles.functions.g = Marbles.functions.generic('g', ',')
 Marbles.functions.h = Marbles.functions.generic('h', ',')
 
+Marbles.functions.f2 = function(x, y) {return "f(" + x + "," + y + ")";};
+Marbles.functions.g2 = function(x, y) {return "g(" + x + "," + y + ")";};
+Marbles.functions.h2 = function(x, y) {return "h(" + x + "," + y + ")";};
+
+
+Marbles.functions.count = function(predicate) {
+  return function(args) {
+    return args.filter(predicate).length;
+  }
+};
+
+Marbles.operators.count = function(predicate) {
+  return Marbles.utils.afterCompletion(
+    Marbles.functions.count(predicate)
+  );
+};
+
+Marbles.operators.sum =
+  Marbles.utils.afterCompletion(Marbles.functions.sum);
+
+Marbles.operators.average =
+  Marbles.utils.afterCompletion(Marbles.functions.average);
+
+Marbles.operators.min =
+  Marbles.utils.afterCompletion(
+    function(args) {
+      return args.reduce(
+        function(x, y){
+          return Math.min(x, y);
+        });
+    });
+
+Marbles.operators.max =
+  Marbles.utils.afterCompletion(
+    function(args) {
+      return args.reduce(
+        function(x, y){
+          return Math.max(x, y);
+        });
+    });
+
+Marbles.operators.last =
+  Marbles.utils.afterCompletion(
+    function(args) {
+      return args[args.length - 1];
+    });
+
+Marbles.operators.first = function(observables) {
+  var marb = Marbles.utils.clone(observables[0].marbles[0]);
+  return {
+    marbles: [marb],
+    complete: marb.t
+  };
+};
+
+Marbles.operators.take = function(n) {
+  return function(observables) {
+    var marbs = Marbles.utils.clone(
+                  observables[0].marbles.slice(0,n));
+    return {
+      marbles: marbs,
+      complete: marbs[n-1].t
+    };
+  };
+};
+
+Marbles.operators.takeLast = function(n) {
+  return function(observables) {
+    var m = observables[0].marbles.length;
+    var marbs = Marbles.utils.clone(
+                  observables[0].marbles.slice(m-n, m));
+    return {
+      marbles: marbs,
+      complete: marbs[n-1].t
+    };
+  };
+};
+
+
+Marbles.operators.skip = function(n) {
+  return function(observables) {
+    var m = observables[0].marbles.length;
+    var marbs = Marbles.utils.clone(
+                  observables[0].marbles.slice(m-n, m));
+    return {
+      marbles: marbs,
+      complete: observables[0].complete
+    };
+  };
+};
+
+Marbles.operators.every = function(predicate) {
+  return Marbles.utils.afterCompletion(
+    function(args) {
+      return args.every(predicate);
+    });
+};
+
+
+Marbles.operators.some = function(predicate) {
+  return Marbles.utils.afterCompletion(
+    function(args) {
+      return args.some(predicate);
+    });
+};
+
+Marbles.operators.reduce = function(func) {
+  return Marbles.utils.afterCompletion(
+    function(args) {
+      return args.reduce(func);
+    });
+};
+
+
+Marbles.functions._0 = 0;
+Marbles.functions._1 = 1;
+Marbles.functions._2 = 2;
+Marbles.functions._3 = 3;
+Marbles.functions._4 = 4;
+Marbles.functions._5 = 5;
+Marbles.functions._6 = 6;
+Marbles.functions._7 = 7;
+Marbles.functions._8 = 8;
+Marbles.functions._9 = 9;
+
 // Example marbles
 Marbles.examples.marbles.abcd = [
   {t: 0.05, value: "a", color: 'pink'},
@@ -522,6 +652,7 @@ Marbles.examples.marbles._20_30_70 = [
   {t: 0.68, value: 70},
 ];
 
+/*
 var M = Marbles
 var E = M.examples.marbles
 
@@ -567,3 +698,4 @@ opZip.render("zip", 500, 60);
 opCombineLatest.render("combineLatest", 500, 60);
 opWithLatestFrom.render("withLatestFrom", 500, 60);
 opAverage.render("average", 500, 60);
+*/

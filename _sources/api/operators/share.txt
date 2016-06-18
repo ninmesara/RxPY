@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_share_header:
+.. _operator-header-share:
 
 
 Share
@@ -17,13 +17,13 @@ Share
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Share <http://reactivex.io/documentation/operators/share.html>`_
+   - Official ReactiveX documentation:
+     `Share <http://reactivex.io/documentation/operators/share.html>`_
 
 
 
-.. _operator_share:
+.. _operator-share:
 
 .. automethod:: Observable.share
 
-    
+   

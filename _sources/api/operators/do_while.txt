@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_do_while_header:
+.. _operator-header-do_while:
 
 
 Do while
@@ -17,16 +17,16 @@ Do while
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `DoWhile <http://reactivex.io/documentation/operators/dowhile.html>`_
+   - Official ReactiveX documentation:
+     `DoWhile <http://reactivex.io/documentation/operators/dowhile.html>`_
 
 
 
-.. _operator_do_while:
+.. _operator-do_while:
 
 .. automethod:: Observable.do_while
 
-    
-    .. image:: /img/reactivex/operators/doWhile.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/doWhile.png
+      :align: center
+   

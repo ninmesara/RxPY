@@ -2,16 +2,16 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_filter_header:
-.. _operator_slice_header:
-.. _operator_where_header:
+.. _operator-header-filter:
+.. _operator-header-slice:
+.. _operator-header-where:
 
 
 Filter
@@ -19,33 +19,33 @@ Filter
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Filter <http://reactivex.io/documentation/operators/filter.html>`_
+   - Official ReactiveX documentation:
+     `Filter <http://reactivex.io/documentation/operators/filter.html>`_
 
 
 
-.. _operator_filter:
+.. _operator-filter:
 
 .. automethod:: Observable.filter
 
-    
-    .. image:: /img/reactivex/operators/filter.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/filter.png
+      :align: center
+   
 
 
-.. _operator_slice:
+.. _operator-slice:
 
 .. automethod:: Observable.slice
 
-    
+   
 
 
-.. _operator_where:
+.. _operator-where:
 
 .. automethod:: Observable.where
 
-    
-    .. image:: /img/reactivex/operators/where.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/where.png
+      :align: center
+   

@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_skip_header:
-.. _operator_skip_with_time_header:
+.. _operator-header-skip:
+.. _operator-header-skip_with_time:
 
 
 Skip
@@ -18,23 +18,23 @@ Skip
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Skip <http://reactivex.io/documentation/operators/skip.html>`_
+   - Official ReactiveX documentation:
+     `Skip <http://reactivex.io/documentation/operators/skip.html>`_
 
 
 
-.. _operator_skip:
+.. _operator-skip:
 
 .. automethod:: Observable.skip
 
-    
-    .. image:: /img/reactivex/operators/skip.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/skip.png
+      :align: center
+   
 
 
-.. _operator_skip_with_time:
+.. _operator-skip_with_time:
 
 .. automethod:: Observable.skip_with_time
 
-    
+   

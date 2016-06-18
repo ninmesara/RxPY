@@ -1,15 +1,13 @@
-.. !!!AUTO!!! (remove this comment to edit)
-
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_average_header:
+.. _operator-header-average:
 
 
 Average
@@ -17,16 +15,43 @@ Average
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Average <http://reactivex.io/documentation/operators/average.html>`_
+   - Official ReactiveX documentation:
+     `Average <http://reactivex.io/documentation/operators/average.html>`_
 
 
 
-.. _operator_average:
+.. _operator-average:
 
 .. automethod:: Observable.average
 
-    
-    .. image:: /img/reactivex/operators/average.png
-        :align: center
-    
+   .. image:: /img/reactivex/operators/average.c.png
+      :align: center
+   
+   >>> import rx
+   >>> source = rx.Observable.range(0, 9).average()
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: 4.0
+   Complete!
+   
+   .. image:: /img/reactivex/operators/average.f.png
+      :align: center
+   
+   >>> import rx
+   >>> shapes = [
+   ...     {'name': 'triangle', 'sides': 3},
+   ...     {'name': 'square', 'sides': 4},
+   ...     {'name': 'pentagon', 'sides': 5},
+   ...     {'name': 'hexagon', 'sides': 6},
+   ...     {'name': 'heptagon', 'sides': 7},
+   ...     {'name': 'octogon', 'sides': 8},
+   ...   ]
+   >>> source = rx.Observable.from_(shapes).average(lambda shape: shape['sides'])
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: 5.5
+   Complete! 

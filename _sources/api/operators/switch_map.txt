@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_switch_map_header:
+.. _operator-header-switch_map:
 
 
 Switch map
@@ -17,16 +17,16 @@ Switch map
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `SwitchMap <http://reactivex.io/documentation/operators/switchmap.html>`_
+   - Official ReactiveX documentation:
+     `SwitchMap <http://reactivex.io/documentation/operators/switchmap.html>`_
 
 
 
-.. _operator_switch_map:
+.. _operator-switch_map:
 
 .. automethod:: Observable.switch_map
 
-    
-    .. image:: /img/reactivex/operators/switchMap.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/switchMap.png
+      :align: center
+   

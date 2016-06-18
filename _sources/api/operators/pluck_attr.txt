@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_pluck_attr_header:
+.. _operator-header-pluck_attr:
 
 
 Pluck attr
@@ -17,13 +17,13 @@ Pluck attr
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `PluckAttr <http://reactivex.io/documentation/operators/pluckattr.html>`_
+   - Official ReactiveX documentation:
+     `PluckAttr <http://reactivex.io/documentation/operators/pluckattr.html>`_
 
 
 
-.. _operator_pluck_attr:
+.. _operator-pluck_attr:
 
 .. automethod:: Observable.pluck_attr
 
-    
+   

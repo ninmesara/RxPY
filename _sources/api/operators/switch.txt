@@ -2,16 +2,16 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_exclusive_header:
-.. _operator_select_switch_header:
-.. _operator_switch_latest_header:
+.. _operator-header-exclusive:
+.. _operator-header-select_switch:
+.. _operator-header-switch_latest:
 
 
 Switch
@@ -19,30 +19,30 @@ Switch
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Switch <http://reactivex.io/documentation/operators/switch.html>`_
+   - Official ReactiveX documentation:
+     `Switch <http://reactivex.io/documentation/operators/switch.html>`_
 
 
 
-.. _operator_exclusive:
+.. _operator-exclusive:
 
 .. automethod:: Observable.exclusive
 
-    
+   
 
 
-.. _operator_select_switch:
+.. _operator-select_switch:
 
 .. automethod:: Observable.select_switch
 
-    
+   
 
 
-.. _operator_switch_latest:
+.. _operator-switch_latest:
 
 .. automethod:: Observable.switch_latest
 
-    
-    .. image:: /img/reactivex/operators/switchLatest.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/switchLatest.png
+      :align: center
+   

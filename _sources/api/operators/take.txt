@@ -2,15 +2,15 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_take_header:
-.. _operator_take_with_time_header:
+.. _operator-header-take:
+.. _operator-header-take_with_time:
 
 
 Take
@@ -18,23 +18,23 @@ Take
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Take <http://reactivex.io/documentation/operators/take.html>`_
+   - Official ReactiveX documentation:
+     `Take <http://reactivex.io/documentation/operators/take.html>`_
 
 
 
-.. _operator_take:
+.. _operator-take:
 
 .. automethod:: Observable.take
 
-    
-    .. image:: /img/reactivex/operators/take.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/take.png
+      :align: center
+   
 
 
-.. _operator_take_with_time:
+.. _operator-take_with_time:
 
 .. automethod:: Observable.take_with_time
 
-    
+   

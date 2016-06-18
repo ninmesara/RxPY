@@ -2,14 +2,14 @@
 
 .. include:: operator-aliases.rst
 
-.. figure:: /img/RxPY/misc/under-construction-icon.png
-    :align: center
-    
-    Under construction...
+.. testsetup:: *
+
+   import rx
+
 
 .. currentmodule:: rx
 
-.. _operator_amb_header:
+.. _operator-header-amb:
 
 
 Amb
@@ -17,16 +17,42 @@ Amb
 
 .. seealso::
 
-    - Official ReactiveX documentation:
-      `Amb <http://reactivex.io/documentation/operators/amb.html>`_
+   - Official ReactiveX documentation:
+     `Amb <http://reactivex.io/documentation/operators/amb.html>`_
 
 
 
-.. _operator_amb:
+.. _operator-amb:
 
 .. automethod:: Observable.amb
 
-    
-    .. image:: /img/reactivex/operators/amb.png
-        :align: center
-    
+   
+   .. image:: /img/reactivex/operators/amb.png
+      :align: center
+
+   >>> import rx
+   >>> source = rx.Observable.amb(
+   ...     rx.Observable.timer(500).select(lambda x: 'foo'),
+   ...     rx.Observable.timer(200).select(lambda x: 'bar'))
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: bar
+   Complete!   
+
+   With marbles:
+
+   >>> import rx
+   >>> from rx.testing import marbles
+   >>> source = rx.Observable.amb(
+   ...     rx.Observable.from_marbles('a-b-c-|'),
+   ...     rx.Observable.from_marbles('-s-t-u-|'))
+   >>> subscription = source.subscribe(
+   ...     lambda value: print("Next:", value),
+   ...     lambda error: print("Error:", error),
+   ...     lambda: print("Complete!")
+   Next: a
+   Next: b
+   Next: c
+   Complete!
